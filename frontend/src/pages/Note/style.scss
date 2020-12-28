@@ -1,0 +1,73 @@
+// ---------------------------
+//  Note
+// ---------------------------
+.note {
+  background-color: $second-dark;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 400px;
+
+  // flex-wrap: wrap;
+  .title {
+    text-align: center;
+    line-height: 1.2;
+
+    h1 {
+      padding-top: 10px;
+    }
+  }
+}
+
+.note-header {
+  width: 100%;
+  padding: 25px 35px;
+  background-color: $second;
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  [class*="icon-"] {
+    font-size: 40px;
+  }
+}
+
+.note-body {
+  flex: 6;
+  padding: 25px 55px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  [class*="icon-"] {
+    font-size: 30px;
+  }
+
+  .title {
+    margin-bottom: 15px;
+  }
+}
+
+.note-footer {
+  padding: 0px 35px;
+  background-color: $second;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.note-container {
+  width: 100%;
+
+  &+.note-container {
+    margin-top: 20px;
+  }
+}
+
+.progress {
+  .vm-progress--line {
+    width: 200px;
+  }
+}

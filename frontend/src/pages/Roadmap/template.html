@@ -1,0 +1,75 @@
+<div class="roadmap" :style="{'--primary-color': primaryColor}">
+  <div class="header">
+    <div class="txt">
+      <transition enter-active-class="fadeIn" leave-active-class="fadeOut" mode="out-in">
+        <h1 v-if="!loading">{{ roadmap.description }} roadmap</h1>
+      </transition>
+      <transition enter-active-class="fadeIn" leave-active-class="fadeOut" mode="out-in">
+        <div :key="rank" v-if="!loading">
+          <h2>{{ rank }}</h2>
+          <h4 v-if="nowTxt < 4">{{ itemLeft }} TASK{{ itemLeft > 1 ? 'S' : ''}} LEFT UNTIL NEXT LEVEL</h4>
+          <h4 v-else-if="nowTxt === 5">ALL COMPLETED</h4>
+        </div>
+      </transition>
+    </div>
+
+    <div class="progress">
+      <vm-progress :percentage="totalProgression" :strokeColor="primaryColor" type="circle" :width="200"
+        style="margin-left: 50px;" v-show="!loading">
+        <transition enter-active-class="rollIn" leave-active-class="rollOut" mode="out-in">
+          <img :src="nowImg" :key="nowImg" width="150" height="150" alt="" v-if="!loading">
+        </transition>
+      </vm-progress>
+    </div>
+
+    <transition enter-active-class="fadeIn" leave-active-class="fadeOut" mode="out-in">
+      <div class="img" :key="nowTxt" v-if="!loading">
+        <p v-if="nowTxt==0" class='myTxt'>Welcome stranger, you have just broken the access code to this game.<br />
+          Your mission is: <span class="main-color">Collect the resources and learn the basic skills.</span><br />
+          Good luck !
+        </p>
+        <p v-if="nowTxt==1" class='myTxt'><strong>Congratulations !</strong>
+          You become a <span class="main-color">“Padawan”</span>.<br />
+          Keep searching the resources to upgrade to the next level.
+        </p>
+        <p v-if="nowTxt==2" class='myTxt'><strong>You’re doing well !</strong>
+          Now you’re a <span class="main-color">“Jedi”</span>. <br />
+          It’s close to complete the upgrading program. <br />
+          Next level: “Jedi Master”.
+        </p>
+        <p v-if="nowTxt==3" class='myTxt'><strong>Excellent !</strong> You’re a <span class="main-color">“Jedi
+            Master”</span> now. Try to complete all the skills !
+        </p>
+        <p v-if="nowTxt==4" class='myTxt'><strong>Amazing !</strong>
+          You have totaly mastered the {{ roadmap.description }} roadmap. Keep up the good work !
+        </p>
+        <p v-if="nowTxt==5" class='myTxt'><strong>Welcome admin !</strong> Do what you want !</p>
+      </div>
+    </transition>
+  </div>
+  <div class="body" v-show="!loading">
+    <div class="body-title">
+      <div class="step" v-for="category in categories" v-if="category.name !== 'master'">
+        <div class="step-img" :class="{canClick: isCategory(category.name)}">
+          <img :src="getCategoryImgUrl(category.name)" alt="" width="50px" height="50px" />
+        </div>
+      </div>
+    </div>
+    <div class="body-content">
+      <div class="step" :key="category.name" v-for="category in categories" v-if="category.name !== 'master'">
+        <transition-group name="list-fade" tag="" class="step">
+          <div class="step-item" :key="skill.id"
+            :class="{canClick: isCategory(category.name), isDone: isSkillDone(skill), isActive: currentSkill === skill}"
+            v-for="skill in getSkills(category.name)" @click="showSkill(skill)">
+            <div class="item-img"><span :class="'icon-sharp-'+ skill.icon + '-24px'"></span></div>
+            <div class="item-list">
+              <p><span class="icon-sharp-build-24px"></span>{{ getSkillProgression(skill, true) }}</p>
+              <p><span class="icon-sharp-filter_tilt_shift-24px"></span>{{ getSkillProgression(skill, false) }}</p>
+            </div>
+          </div>
+        </transition-group>
+      </div>
+    </div>
+  </div>
+  <Note :key="currentSkill.id" :primaryColor="primaryColor" :skill="currentSkill" :admin="isAdmin" />
+</div>

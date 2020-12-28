@@ -1,0 +1,77 @@
+<div class="note" v-if="currentTask">
+  <div class="note-header">
+    <div class="title" v-if="admin">
+      <span class="icon-sharp-settings-24px"></span>
+      <h2>{{ skill.name }}</h2>
+    </div>
+    <div class="title" v-else>
+      <span class="icon-sharp-settings-24px" v-if="currentTask.required"></span>
+      <span class="icon-sharp-filter_tilt_shift-24px" v-else></span>
+      <h2 :key="currentTask.name">{{ currentTask.name }}</h2>
+    </div>
+  </div>
+  <transition name="slide-fade" mode="out-in">
+    <div key=1 class="note-body">
+      <div class="note-container" v-if="admin">
+        NAME : <input v-model="currentTask.name"></input>
+        DESCRIPTION : <input v-model="currentTask.description"></input>
+        REQUIRED : <input type="checkbox" v-model="currentTask.required"></input>
+      </div>
+      <div class="note-container" v-else>
+        {{ currentTask.description }}
+      </div>
+    </div>
+  </transition>
+  <div class="note-footer">
+    <button class="btn" @click.stop="showTask(undefined)">BACK</button>
+    <button class="btn isActive" @click.stop="saveTask()" v-if="admin">SAVE</button>
+    <button class="btn isActive" @click.stop="checkTask()" v-else-if="!currentTask.done">UNLOCK</button>
+  </div>
+</div>
+<div class="note" v-else-if="skill.name != undefined">
+  <div class="note-header">
+    <div class="title">
+      <span :class="'icon-sharp-'+ skill.icon + '-24px'"></span>
+      <h2>{{skill.name}}</h2>
+    </div>
+  </div>
+  <transition name="slide-fade" mode="out-in">
+    <div class="note-body" v-if="admin">
+      <div class="note-container">
+        <div class="title">
+          <span class="icon-sharp-settings-24px"></span>
+          <p>TASKS</p>
+        </div>
+        <button class="btn" v-for="(task, index) in skill.tasks" :key="task.id"
+          @click.stop="showTask(task)">{{ task.name }}</button>
+      </div>
+    </div>
+    <div class="note-body" v-else>
+      <div class="note-container" v-if="requireds.length > 0">
+        <div class="title">
+          <span class="icon-sharp-settings-24px"></span>
+          <p>REQUIRED</p>
+        </div>
+        <button class="btn" v-for="(task, index) in requireds" :class="{isActive: task.done}" :key="task.id"
+          @click.stop="showTask(task)">{{ task.name }}</button>
+      </div>
+      <div class="note-container" v-if="optionals.length > 0">
+        <div class="title">
+          <span class="icon-sharp-filter_tilt_shift-24px"></span>
+          <p>OPTIONAL</p>
+        </div>
+        <button class="btn" v-for="(task, index) in optionals" :class="{isActive: task.done}" :key="task.id"
+          @click.stop="showTask(task)">{{ task.name }}</button>
+      </div>
+    </div>
+  </transition>
+  <div class="note-footer" v-if="admin">
+    <button class="btn" @click.stop="addTask()">Add Task</button>
+  </div>
+  <div class="note-footer" v-else>
+    <div class="progress">
+      <vm-progress :percentage="skillProgression" :text-inside="true" :stroke-width="18" :strokeColor="primaryColor">
+      </vm-progress>
+    </div>
+  </div>
+</div>

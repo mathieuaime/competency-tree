@@ -1,0 +1,115 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="mathieu (generated)" id="1602345010494-1">
+        <createTable tableName="roadmap">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="roadmapPK"/>
+            </column>
+            <column name="description" type="CLOB"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-2">
+        <createTable tableName="roadmap_item">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="roadmap_itemPK"/>
+            </column>
+            <column name="category" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="required" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="roadmap_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="skill_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="task_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-3">
+        <createTable tableName="skill">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="skillPK"/>
+            </column>
+            <column name="icon" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-4">
+        <createTable tableName="task">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="taskPK"/>
+            </column>
+            <column name="description" type="CLOB"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-5">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="userPK"/>
+            </column>
+            <column name="login" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-6">
+        <createTable tableName="user_check">
+            <column name="roadmap_item_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_checkPK"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_checkPK"/>
+            </column>
+            <column name="done" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-7">
+        <addUniqueConstraint columnNames="name" constraintName="UC_ROADMAPNAME_COL" tableName="roadmap"/>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-8">
+        <addUniqueConstraint columnNames="name" constraintName="UC_SKILLNAME_COL" tableName="skill"/>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-9">
+        <addUniqueConstraint columnNames="name" constraintName="UC_TASKNAME_COL" tableName="task"/>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-10">
+        <addUniqueConstraint columnNames="login" constraintName="UC_USERLOGIN_COL" tableName="user"/>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-11">
+        <addUniqueConstraint columnNames="roadmap_id, skill_id, task_id" constraintName="UK58v8jvuniw28b7f5spkwchf3r" tableName="roadmap_item"/>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-12">
+        <createIndex indexName="IDXentrwe2k6m922hma8yehd8hqf" tableName="user_check">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-13">
+        <createIndex indexName="IDXp887819xsjy64xq4ljx5eh9kq" tableName="roadmap_item">
+            <column name="task_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-14">
+        <addForeignKeyConstraint baseColumnNames="roadmap_id" baseTableName="roadmap_item" constraintName="FK7q7kyw1lypdwh8dypmdk8lghv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="roadmap" validate="true"/>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-15">
+        <addForeignKeyConstraint baseColumnNames="task_id" baseTableName="roadmap_item" constraintName="FK8e539s9uof2p87dgboasn6vvb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="task" validate="true"/>
+    </changeSet>
+    <changeSet author="mathieu (generated)" id="1602345010494-16">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="roadmap_item" constraintName="FKd82ll16j7f25qg69up7vu9no4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="skill" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

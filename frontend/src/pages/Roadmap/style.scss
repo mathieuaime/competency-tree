@@ -1,0 +1,181 @@
+.green {
+  --primary-color: $green;
+}
+
+.red {
+  --primary-color: $red;
+}
+
+.blue {
+  --primary-color: $blue;
+}
+
+$primary: var(--primary-color);
+
+.roadmap {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding: 35px;
+}
+
+// ---------------------------
+//  Header
+// ---------------------------
+.header {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-size: 35px;
+  }
+
+  .sub-title {
+    color: $second;
+    padding: 5px 30px;
+    background-color: $second-dark;
+  }
+
+  h2 {
+    margin-top: 15px;
+    text-decoration: underline;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-decoration-color: var(--primary-color);
+    font-size: 30px;
+  }
+
+  .myTxt {
+    margin-top: 25px;
+    font-size: 14px;
+    padding: 20px;
+    width: 90%;
+    line-height: 1.4;
+    border: 1px solid var(--primary-color);
+  }
+
+  img {
+    filter: grayscale(1) invert(1);
+  }
+}
+
+// ---------------------------
+//  Body
+// ---------------------------
+.body {
+  display: flex;
+  flex: 1.5;
+  min-width: 300px;
+}
+
+.main-color {
+  color: $primary;
+}
+
+.body-title {
+  display: flex;
+  flex-direction: column;
+
+  .step {
+    position: relative;
+
+    &::after {
+      content: "";
+      opacity: 0%;
+      width: 4px;
+      height: 100%;
+      background-color: $primary;
+      transform: translateX(100%);
+      left: 50%;
+      // position: absolute;
+    }
+  }
+}
+
+.body-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+
+}
+
+.step {
+  display: flex;
+  align-content: flex-start; // align-items: center;
+  flex: 1;
+  flex-wrap: wrap;
+
+  &.step-2 {
+    flex: 2;
+  }
+}
+
+.step-img {
+  opacity: 0.3;
+  filter: grayscale(1) invert(1);
+  color: white;
+
+  &.canClick {
+    opacity: 1;
+  }
+}
+
+.step-item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  opacity: 0.3;
+  cursor: pointer;
+  pointer-events: none;
+  transition: transform .4s;
+
+  &.canClick {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.isDone {
+    .item-img {
+      background-color: $primary;
+      border-color: $grey-light;
+
+      [class*="icon-"] {
+        color: rgba($w, 0.5);
+      }
+
+    }
+
+    .item-list {
+      color: $second-dark;
+    }
+  }
+
+  &.isActive {
+    .item-img {
+      border: 2px solid $w;
+    }
+  }
+
+  .item-img {
+    background-color: $grey-dark;
+    padding: 5px;
+    border: 2px solid $grey-dark;
+
+    [class*="icon-"] {
+      font-size: 24px;
+    }
+  }
+
+  .item-list {
+    margin-top: 5px;
+    font-size: 14px;
+
+    [class*="icon-"] {
+      padding-right: 5px;
+    }
+  }
+}
