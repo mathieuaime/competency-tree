@@ -60,15 +60,15 @@ class RoadmapItemRepositoryImplTest {
 
   @Test
   void create() {
-    Task task = randomTask();
+    Task task = randomTask(this.task.getId());
 
-    roadmapItemRepository.create(this.roadmap.getId(), this.skill.getId(), this.task.getId(), task);
+    roadmapItemRepository.create(this.roadmap.getId(), this.skill.getId(), task);
 
     var roadmapItem = em.find(RoadmapItemEntity.class, 1L);
 
     assertThat(roadmapItem.getRoadmap().getId()).isEqualTo(this.roadmap.getId());
     assertThat(roadmapItem.getSkill().getId()).isEqualTo(this.skill.getId());
-    assertThat(roadmapItem.getTask().getId()).isEqualTo(this.task.getId());
+    assertThat(roadmapItem.getTask().getId()).isEqualTo(task.getId());
     assertThat(roadmapItem.getCategory()).isEqualTo(task.getCategory());
     assertThat(roadmapItem.isRequired()).isEqualTo(task.isRequired());
   }

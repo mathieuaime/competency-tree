@@ -34,6 +34,10 @@ public class TestFixture {
     return randomTaskFromName(randomString());
   }
 
+  public static Task randomTask(Long id) {
+    return randomTaskFromIdAndName(id, randomString());
+  }
+
   public static Task randomTaskFromName(String name) {
     return randomTaskFromIdAndName(null, name);
   }
