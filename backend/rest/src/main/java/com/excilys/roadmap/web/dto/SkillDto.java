@@ -7,11 +7,24 @@ import java.util.Objects;
 
 public class SkillDto {
   private Long id;
+  private String name;
+  private String icon;
   private Category category;
   private boolean done;
-  private String icon;
-  private String name;
   private Collection<TaskDto> tasks = new ArrayList<>();
+
+  public SkillDto() {
+  }
+
+  public SkillDto(Long id, String name, String icon, Category category, boolean done,
+      Collection<TaskDto> tasks) {
+    this.id = id;
+    this.name = name;
+    this.icon = icon;
+    this.category = category;
+    this.done = done;
+    this.tasks = tasks;
+  }
 
   public Long getId() {
     return id;
@@ -21,12 +34,12 @@ public class SkillDto {
     this.id = id;
   }
 
-  public Category getCategory() {
-    return category;
+  public String getName() {
+    return name;
   }
 
-  public void setCategory(Category category) {
-    this.category = category;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getIcon() {
@@ -37,12 +50,12 @@ public class SkillDto {
     this.icon = icon;
   }
 
-  public String getName() {
-    return name;
+  public Category getCategory() {
+    return category;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setCategory(Category category) {
+    this.category = category;
   }
 
   public boolean isDone() {

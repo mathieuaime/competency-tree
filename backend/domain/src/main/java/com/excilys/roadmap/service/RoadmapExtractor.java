@@ -20,7 +20,7 @@ public class RoadmapExtractor {
     return projections.stream()
         .findFirst()
         .map(TaskProjection::getRoadmap)
-        .map(roadmap -> roadmap.setSkills(getSkills()));
+        .map(r -> new Roadmap(r.getId(), r.getName(), r.getDescription(), getSkills()));
   }
 
   private Collection<Skill> getSkills() {

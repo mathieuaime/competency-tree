@@ -1,5 +1,6 @@
 package com.excilys.roadmap.persistence.impl;
 
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 import com.excilys.roadmap.model.Task;
@@ -10,31 +11,33 @@ import com.excilys.roadmap.repository.projection.TaskProjection;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class TaskRepositoryImpl implements TaskRepository {
-  private static final String FIND_ALL_BY_ROADMAP_QUERY =
-      "select new com.excilys.roadmap.repository.projection.TaskProjection("
-          + "item.roadmap.id, item.roadmap.name, item.roadmap.description,"
-          + "item.skill.id, item.skill.name, item.skill.icon,"
-          + "item.task.id, item.task.name, item.task.description,"
-          + "item.category, false, item.required) "
-          + "from RoadmapItem item "
-          + "where item.roadmap.name = ?1";
+  private static final String FIND_ALL_BY_ROADMAP_QUERY = """
+        SELECT new com.excilys.roadmap.repository.projection.TaskProjection(
+        item.roadmap.id, item.roadmap.name, item.roadmap.description,
+        item.skill.id, item.skill.name, item.skill.icon,
+        item.task.id, item.task.name, item.task.description,
+        item.category, false, item.required)
+        FROM RoadmapItem item
+        WHERE item.roadmap.name = ?1
+      """;
 
-  private static final String FIND_ALL_BY_USER_AND_ROADMAP_QUERY =
-      "select new com.excilys.roadmap.repository.projection.TaskProjection("
-          + "item.roadmap.id, item.roadmap.name, item.roadmap.description,"
-          + "item.skill.id, item.skill.name, item.skill.icon,"
-          + "item.task.id, item.task.name, item.task.description,"
-          + "item.category, c.done, item.required) "
-          + "from RoadmapItem item "
-          + "left join Check c on item.id = c.id.roadmapItemId "
-          + "where c.id.userId = ?1 and item.roadmap.name = ?2";
+  private static final String FIND_ALL_BY_USER_AND_ROADMAP_QUERY = """
+        SELECT new com.excilys.roadmap.repository.projection.TaskProjection(
+        item.roadmap.id, item.roadmap.name, item.roadmap.description,
+        item.skill.id, item.skill.name, item.skill.icon,
+        item.task.id, item.task.name, item.task.description,
+        item.category, c.done, item.required) 
+        FROM RoadmapItem item 
+        LEFT JOIN Check c on item.id = c.id.roadmapItemId 
+        WHERE c.id.userId = ?1 
+        AND item.roadmap.name = ?2
+      """;
 
   @PersistenceContext
   private EntityManager em;
@@ -44,7 +47,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     return em.createQuery("from Task", TaskEntity.class)
         .getResultStream()
         .map(TaskMapper::toModel)
-        .collect(Collectors.toList());
+        .collect(toList());
   }
 
   @Override
@@ -65,7 +68,7 @@ public class TaskRepositoryImpl implements TaskRepository {
   }
 
   @Override
-  public Task retrieveOrCreate(Task task) {
+  public Task merge(Task task) {
     TaskEntity entity = TaskMapper.toEntity(task);
 
     if (entity.getId() == null) {
@@ -79,7 +82,8 @@ public class TaskRepositoryImpl implements TaskRepository {
       entity = em.merge(entity);
     }
 
-    return task.setId(entity.getId());
+    return new Task(entity.getId(), task.getName(), task.getDescription(), task.isDone(),
+        task.isRequired(), task.getCategory());
   }
 
   private Optional<TaskEntity> findByName(String name) {

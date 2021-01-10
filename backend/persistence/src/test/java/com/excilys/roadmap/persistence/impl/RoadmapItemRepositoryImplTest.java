@@ -49,7 +49,6 @@ class RoadmapItemRepositoryImplTest {
 
     var roadmap = roadmaps.get(0);
     assertThat(roadmap.getId()).isEqualTo(this.roadmap.getId());
-    assertThat(roadmap.getSkills()).isEmpty();
   }
 
   @Test

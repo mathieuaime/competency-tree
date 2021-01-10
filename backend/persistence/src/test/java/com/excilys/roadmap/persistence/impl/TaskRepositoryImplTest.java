@@ -7,6 +7,7 @@ import static com.excilys.roadmap.persistence.TestFixture.randomTask;
 import static com.excilys.roadmap.persistence.TestFixture.randomTaskEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.excilys.roadmap.persistence.TestFixture;
 import com.excilys.roadmap.persistence.entity.CheckEntity;
 import com.excilys.roadmap.persistence.entity.TaskEntity;
 import org.junit.jupiter.api.BeforeEach;
@@ -90,7 +91,7 @@ class TaskRepositoryImplTest {
 
   @Test
   void retrieveOrCreate_whenNotFound_shouldCreateTask() {
-    var task = taskRepository.retrieveOrCreate(randomTask());
+    var task = taskRepository.merge(randomTask());
 
     var saved = em.find(TaskEntity.class, task.getId());
 
@@ -101,7 +102,7 @@ class TaskRepositoryImplTest {
 
   @Test
   void retrieveOrCreate_whenSameName_shouldRetrieveTask() {
-    var task = taskRepository.retrieveOrCreate(randomTask().setName(taskEntity.getName()));
+    var task = taskRepository.merge(TestFixture.randomTaskFromName(taskEntity.getName()));
 
     var saved = em.find(TaskEntity.class, task.getId());
 
@@ -113,7 +114,7 @@ class TaskRepositoryImplTest {
   @Test
   void retrieveOrCreate_whenIdIsNotNull_shouldUpdateTask() {
     var task = taskRepository
-        .retrieveOrCreate(randomTask().setId(taskEntity.getId()).setName(taskEntity.getName()));
+        .merge(TestFixture.randomTaskFromIdAndName(taskEntity.getId(), taskEntity.getName()));
 
     var saved = em.find(TaskEntity.class, task.getId());
 

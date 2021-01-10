@@ -3,15 +3,12 @@ package com.excilys.roadmap.model;
 import java.util.Objects;
 
 public class Task implements Comparable<Task> {
-  private Long id;
-  private String name;
-  private String description;
-  private boolean done;
-  private boolean required;
-  private Category category;
-
-  public Task() {
-  }
+  private final Long id;
+  private final String name;
+  private final String description;
+  private final boolean done;
+  private final boolean required;
+  private final Category category;
 
   public Task(Long id, String name, String description, boolean done, boolean required,
       Category category) {
@@ -31,54 +28,24 @@ public class Task implements Comparable<Task> {
     return id;
   }
 
-  public Task setId(Long id) {
-    this.id = id;
-    return this;
-  }
-
   public String getName() {
     return name;
-  }
-
-  public Task setName(String name) {
-    this.name = name;
-    return this;
   }
 
   public String getDescription() {
     return description;
   }
 
-  public Task setDescription(String description) {
-    this.description = description;
-    return this;
-  }
-
   public boolean isDone() {
     return done;
-  }
-
-  public Task setDone(boolean done) {
-    this.done = done;
-    return this;
   }
 
   public boolean isRequired() {
     return required;
   }
 
-  public Task setRequired(boolean required) {
-    this.required = required;
-    return this;
-  }
-
   public Category getCategory() {
     return category;
-  }
-
-  public Task setCategory(Category category) {
-    this.category = category;
-    return this;
   }
 
   @Override

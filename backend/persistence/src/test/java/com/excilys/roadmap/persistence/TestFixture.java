@@ -31,8 +31,15 @@ public class TestFixture {
   }
 
   public static Task randomTask() {
-    return new Task(null, randomString(), randomString(), randomBoolean(), randomBoolean(),
-        randomCategory());
+    return randomTaskFromName(randomString());
+  }
+
+  public static Task randomTaskFromName(String name) {
+    return randomTaskFromIdAndName(null, name);
+  }
+
+  public static Task randomTaskFromIdAndName(Long id, String name) {
+    return new Task(id, name, randomString(), randomBoolean(), randomBoolean(), randomCategory());
   }
 
   public static TaskEntity randomTaskEntity() {

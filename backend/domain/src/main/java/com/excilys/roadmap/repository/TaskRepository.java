@@ -12,5 +12,5 @@ public interface TaskRepository {
 
   Set<TaskProjection> findByUserAndRoadmap(long userId, String roadmapName);
 
-  Task retrieveOrCreate(Task task);
+  Task merge(Task task);
 }

@@ -35,10 +35,10 @@ public class TaskService {
   public Task save(long roadmapId, long skillId, Task task) {
     boolean creation = task.getId() == null;
 
-    task = repository.retrieveOrCreate(task);
+    task = repository.merge(task);
 
     if (creation) {
-      roadmapItemRepository.create(roadmapId, skillId, task.getId(), task);
+      roadmapItemRepository.create(roadmapId, skillId, task);
     }
 
     return task;

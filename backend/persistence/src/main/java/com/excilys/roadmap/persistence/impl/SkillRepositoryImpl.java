@@ -1,11 +1,12 @@
 package com.excilys.roadmap.persistence.impl;
 
+import static java.util.stream.Collectors.toList;
+
 import com.excilys.roadmap.model.Skill;
 import com.excilys.roadmap.persistence.entity.SkillEntity;
 import com.excilys.roadmap.persistence.mapper.SkillMapper;
 import com.excilys.roadmap.repository.SkillRepository;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -20,7 +21,7 @@ public class SkillRepositoryImpl implements SkillRepository {
     return em.createQuery("from Skill", SkillEntity.class)
         .getResultStream()
         .map(SkillMapper::toModel)
-        .collect(Collectors.toList());
+        .collect(toList());
   }
 
   @Override

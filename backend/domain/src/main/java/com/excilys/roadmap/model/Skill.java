@@ -9,83 +9,53 @@ public class Skill implements Comparable<Skill> {
   private static final Comparator<Skill> CATEGORY_AND_ID_COMPARATOR =
       Comparator.comparing(Skill::getCategory).thenComparing(Skill::getId);
 
-  private Long id;
-  private Category category;
-  private String icon;
-  private String name;
-  private Set<Task> tasks = new TreeSet<>();
-  private boolean done;
-
   public static Comparator<Skill> categoryAndIdComparator() {
     return CATEGORY_AND_ID_COMPARATOR;
   }
 
-  public Skill() {
-  }
+  private final Long id;
+  private final Category category;
+  private final String icon;
+  private final String name;
+  private final Set<Task> tasks;
+  private final boolean done;
 
   public Skill(Long id, String name, String icon) {
     this(id, name, icon, null);
   }
 
   public Skill(Long id, String name, String icon, Category category) {
+    this(id, name, icon, category, true, new TreeSet<>());
+  }
+
+  public Skill(Long id, String name, String icon, Category category, boolean done,
+      Set<Task> tasks) {
     this.id = id;
-    this.name = name;
-    this.icon = icon;
     this.category = category;
-    this.done = true;
+    this.icon = icon;
+    this.name = name;
+    this.done = done;
+    this.tasks = tasks;
   }
 
   public Long getId() {
     return id;
   }
 
-  public Skill setId(Long id) {
-    this.id = id;
-    return this;
-  }
-
   public Category getCategory() {
     return category;
-  }
-
-  public Skill setCategory(Category category) {
-    this.category = category;
-    return this;
   }
 
   public String getIcon() {
     return icon;
   }
 
-  public Skill setIcon(String icon) {
-    this.icon = icon;
-    return this;
-  }
-
   public String getName() {
     return name;
   }
 
-  public Skill setName(String name) {
-    this.name = name;
-    return this;
-  }
-
-  public void addTask(Task task) {
-    boolean add = tasks.add(task);
-
-    if (add && task.isRequired()) {
-      this.done &= task.isDone();
-    }
-  }
-
   public Set<Task> getTasks() {
     return tasks;
-  }
-
-  public Skill setTasks(Set<Task> tasks) {
-    this.tasks = tasks;
-    return this;
   }
 
   public boolean isDone() {

@@ -11,8 +11,8 @@ import com.excilys.roadmap.service.TaskService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration(proxyBeanMethods = false)
-public class ServiceConfig {
+@Configuration
+public class ServiceConfiguration {
   @Bean
   public RoadmapService roadmapService(
       RoadmapRepository roadmapRepository,

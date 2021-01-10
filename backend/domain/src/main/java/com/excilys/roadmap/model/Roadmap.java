@@ -1,60 +1,45 @@
 package com.excilys.roadmap.model;
 
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.Objects;
 import java.util.TreeSet;
 
 public class Roadmap {
-  private Long id;
-  private String name;
-  private String description;
-  private Collection<Skill> skills = new TreeSet<>(Skill.categoryAndIdComparator());
-
-  public Roadmap() {
-  }
+  private final Long id;
+  private final String name;
+  private final String description;
+  private final Collection<Skill> skills;
 
   public Roadmap(Long id, String name, String description) {
+    this(id, name, description, new TreeSet<>(Skill.categoryAndIdComparator()));
+  }
+
+  public Roadmap(Long id, String name, String description, Collection<Skill> skills) {
     this.id = id;
     this.name = name;
     this.description = description;
+    this.skills = skills;
   }
 
   public Long getId() {
     return id;
   }
 
-  public Roadmap setId(Long id) {
-    this.id = id;
-    return this;
-  }
 
   public String getName() {
     return name;
   }
 
-  public Roadmap setName(String name) {
-    this.name = name;
-    return this;
-  }
 
   public String getDescription() {
     return description;
   }
 
-  public Roadmap setDescription(String description) {
-    this.description = description;
-    return this;
-  }
 
   public Collection<Skill> getSkills() {
     return skills;
   }
 
-  public Roadmap setSkills(Collection<Skill> skills) {
-    this.skills = skills;
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -82,15 +67,5 @@ public class Roadmap {
         ", name='" + name + '\'' +
         ", description='" + description + '\'' +
         '}';
-  }
-
-  public Roadmap addSkill(Skill skill) {
-    this.skills.add(skill);
-    return this;
-  }
-
-  public Roadmap addSkills(Collection<Skill> skills) {
-    this.skills.addAll(skills);
-    return this;
   }
 }

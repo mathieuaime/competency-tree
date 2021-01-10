@@ -1,40 +1,55 @@
 package com.excilys.roadmap.web.rest;
 
-import com.excilys.roadmap.model.Roadmap;
+import static java.util.stream.Collectors.toList;
+
 import com.excilys.roadmap.service.RoadmapService;
 import com.excilys.roadmap.web.dto.RoadmapDto;
 import com.excilys.roadmap.web.mapper.RoadmapMapper;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin
 @RestController
-@RequestMapping("/api/v1/roadmaps")
-//@PermitAll
 public class RoadmapResource {
   private final RoadmapService service;
-  private final RoadmapMapper mapper;
 
-  public RoadmapResource(RoadmapService service, RoadmapMapper mapper) {
+  public RoadmapResource(RoadmapService service) {
     this.service = service;
-    this.mapper = mapper;
   }
 
-  @GetMapping
-  public List<Roadmap> findAll() {
-    return service.findAll();
+  @GetMapping("/roadmaps")
+  public List<RoadmapDto> findAll() {
+    return service.findAll().stream().map(RoadmapMapper::toDto).collect(toList());
   }
 
-  @PutMapping
-  public ResponseEntity<RoadmapDto> save(@RequestBody RoadmapDto roadmapDto) {
-    var roadmap = mapper.toModel(roadmapDto);
+  @GetMapping("/roadmaps/{name}")
+  public ResponseEntity<RoadmapDto> findByName(@PathVariable String name) {
+    var roadmap = service.findByName(name).map(RoadmapMapper::toDto);
+
+    return ResponseEntity.of(roadmap);
+  }
+
+  @GetMapping("/me/roadmaps/{name}")
+  public ResponseEntity<RoadmapDto> findUserRoadmaps(@PathVariable String name) {
+    // get in security context
+    long userId = 1;
+
+    var roadmapDto = service.findByUserAndName(userId, name).map(RoadmapMapper::toDto);
+
+    return ResponseEntity.of(roadmapDto);
+  }
+
+  @PutMapping("/roadmaps")
+  public RoadmapDto update(@RequestBody RoadmapDto roadmapDto) {
+    var roadmap = RoadmapMapper.toModel(roadmapDto);
+
     roadmap = service.save(roadmap);
-    return ResponseEntity.ok(mapper.toDto(roadmap));
+    roadmapDto = RoadmapMapper.toDto(roadmap);
+
+    return roadmapDto;
   }
 }

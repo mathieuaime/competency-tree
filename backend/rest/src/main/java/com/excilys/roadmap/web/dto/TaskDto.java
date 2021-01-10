@@ -11,6 +11,18 @@ public class TaskDto {
   private boolean required;
   private Category category;
 
+  public TaskDto() {
+  }
+
+  public TaskDto(Long id, String name, String description, boolean done, boolean required, Category category) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.done = done;
+    this.required = required;
+    this.category = category;
+  }
+
   public Long getId() {
     return id;
   }

@@ -1,38 +1,31 @@
 package com.excilys.roadmap.fixture;
 
+import static java.util.UUID.randomUUID;
+
 import com.excilys.roadmap.model.Category;
 import com.excilys.roadmap.model.Roadmap;
 import com.excilys.roadmap.model.Skill;
 import com.excilys.roadmap.model.Task;
 import java.util.Random;
-import java.util.UUID;
 
 public class TestFixture {
   private static final Category[] CATEGORIES = Category.values();
 
   public static Roadmap randomRoadmap() {
-    Roadmap roadmap = new Roadmap();
-    roadmap.setName(UUID.randomUUID().toString());
-    roadmap.setDescription(UUID.randomUUID().toString());
-    return roadmap;
+    return new Roadmap(null, randomUUID().toString(), randomUUID().toString());
   }
 
   public static Skill randomSkill() {
-    Skill skill = new Skill();
-    skill.setName(UUID.randomUUID().toString());
-    skill.setIcon(UUID.randomUUID().toString());
-    skill.setCategory(randomCategory());
-    return skill;
+    return new Skill(null, randomUUID().toString(), randomUUID().toString(), randomCategory());
   }
 
   public static Task randomTask() {
-    Task task = new Task();
-    task.setRequired(new Random().nextBoolean());
-    task.setDone(new Random().nextBoolean());
-    task.setCategory(randomCategory());
-    task.setName(UUID.randomUUID().toString());
-    task.setDescription(UUID.randomUUID().toString());
-    return task;
+    return randomTask(null);
+  }
+
+  public static Task randomTask(Long id) {
+    return new Task(id, randomUUID().toString(), randomUUID().toString(),
+        new Random().nextBoolean(), new Random().nextBoolean(), randomCategory());
   }
 
   private static Category randomCategory() {

@@ -11,38 +11,30 @@
 
   <artifactId>persistence</artifactId>
 
-  <properties>
-    <liquibase-maven-plugin.version>3.9.0</liquibase-maven-plugin.version>
-  </properties>
-
   <dependencies>
+    <!-- Internal -->
     <dependency>
       <groupId>com.excilys.roadmap</groupId>
       <artifactId>domain</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>jakarta.persistence</groupId>
-      <artifactId>jakarta.persistence-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.liquibase</groupId>
-      <artifactId>liquibase-core</artifactId>
-    </dependency>
-
+    <!-- Persistence -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
-      <scope>test</scope>
     </dependency>
+
+    <!-- Tests -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.h2database</groupId>
@@ -50,62 +42,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.liquibase</groupId>
-        <artifactId>liquibase-maven-plugin</artifactId>
-        <version>${liquibase-maven-plugin.version}</version>
-        <configuration>
-          <changeLogFile>
-            ${project.basedir}/src/main/resources/db/changelog/db.changelog-master.yaml
-          </changeLogFile>
-          <diffChangeLogFile>
-            ${project.basedir}/src/main/resources/db/changelog/changes/${project.version}_${maven.build.timestamp}_changelog.xml
-          </diffChangeLogFile>
-          <driver>org.h2.Driver</driver>
-          <url>jdbc:h2:file:${project.build.directory}/h2db/db/liquibase</url>
-          <username>sa</username>
-          <referenceUrl>hibernate:spring:com.excilys.roadmap?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
-          <verbose>true</verbose>
-          <logging>debug</logging>
-          <contexts>!test</contexts>
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>${liquibase-maven-plugin.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.liquibase.ext</groupId>
-            <artifactId>liquibase-hibernate5</artifactId>
-            <version>${liquibase-hibernate5.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>${spring-boot.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>${validation-api.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>${javassist.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>

@@ -13,6 +13,13 @@ public class RoadmapDto {
   public RoadmapDto() {
   }
 
+  public RoadmapDto(Long id, String name, String description, Collection<SkillDto> skills) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.skills = skills;
+  }
+
   public Long getId() {
     return id;
   }
