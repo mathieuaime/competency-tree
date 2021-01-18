@@ -1,13 +1,14 @@
 package com.excilys.roadmap.persistence.impl;
 
-import static com.excilys.roadmap.persistence.TestFixture.randomRoadmapEntity;
-import static com.excilys.roadmap.persistence.TestFixture.randomRoadmapItemEntity;
-import static com.excilys.roadmap.persistence.TestFixture.randomSkillEntity;
-import static com.excilys.roadmap.persistence.TestFixture.randomTask;
-import static com.excilys.roadmap.persistence.TestFixture.randomTaskEntity;
+import static com.excilys.roadmap.TestFixture.randomTaskFromId;
+import static com.excilys.roadmap.TestFixture.randomTaskFromIdAndName;
+import static com.excilys.roadmap.TestFixture.randomTaskFromName;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomRoadmapEntity;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomRoadmapItemEntity;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomSkillEntity;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomTaskEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.excilys.roadmap.persistence.TestFixture;
 import com.excilys.roadmap.persistence.entity.CheckEntity;
 import com.excilys.roadmap.persistence.entity.TaskEntity;
 import org.junit.jupiter.api.BeforeEach;
@@ -91,7 +92,7 @@ class TaskRepositoryImplTest {
 
   @Test
   void retrieveOrCreate_whenNotFound_shouldCreateTask() {
-    var task = taskRepository.merge(randomTask());
+    var task = taskRepository.merge(randomTaskFromId(null));
 
     var saved = em.find(TaskEntity.class, task.getId());
 
@@ -102,7 +103,7 @@ class TaskRepositoryImplTest {
 
   @Test
   void retrieveOrCreate_whenSameName_shouldRetrieveTask() {
-    var task = taskRepository.merge(TestFixture.randomTaskFromName(taskEntity.getName()));
+    var task = taskRepository.merge(randomTaskFromName(taskEntity.getName()));
 
     var saved = em.find(TaskEntity.class, task.getId());
 
@@ -114,7 +115,7 @@ class TaskRepositoryImplTest {
   @Test
   void retrieveOrCreate_whenIdIsNotNull_shouldUpdateTask() {
     var task = taskRepository
-        .merge(TestFixture.randomTaskFromIdAndName(taskEntity.getId(), taskEntity.getName()));
+        .merge(randomTaskFromIdAndName(taskEntity.getId(), taskEntity.getName()));
 
     var saved = em.find(TaskEntity.class, task.getId());
 

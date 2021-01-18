@@ -1,9 +1,6 @@
 package com.excilys.roadmap.persistence;
 
 import com.excilys.roadmap.model.Category;
-import com.excilys.roadmap.model.Roadmap;
-import com.excilys.roadmap.model.Skill;
-import com.excilys.roadmap.model.Task;
 import com.excilys.roadmap.persistence.entity.RoadmapEntity;
 import com.excilys.roadmap.persistence.entity.RoadmapItemEntity;
 import com.excilys.roadmap.persistence.entity.SkillEntity;
@@ -11,39 +8,15 @@ import com.excilys.roadmap.persistence.entity.TaskEntity;
 import java.util.Random;
 import java.util.UUID;
 
-public class TestFixture {
+public class PersistenceTestFixture {
   private static final Category[] CATEGORIES = Category.values();
-
-  public static Roadmap randomRoadmap() {
-    return new Roadmap(null, randomString(), randomString());
-  }
 
   public static RoadmapEntity randomRoadmapEntity() {
     return new RoadmapEntity(null, randomString(), randomString());
   }
 
-  public static Skill randomSkill() {
-    return new Skill(null, randomString(), randomString(), randomCategory());
-  }
-
   public static SkillEntity randomSkillEntity() {
     return new SkillEntity(null, randomString(), randomString());
-  }
-
-  public static Task randomTask() {
-    return randomTaskFromName(randomString());
-  }
-
-  public static Task randomTask(Long id) {
-    return randomTaskFromIdAndName(id, randomString());
-  }
-
-  public static Task randomTaskFromName(String name) {
-    return randomTaskFromIdAndName(null, name);
-  }
-
-  public static Task randomTaskFromIdAndName(Long id, String name) {
-    return new Task(id, name, randomString(), randomBoolean(), randomBoolean(), randomCategory());
   }
 
   public static TaskEntity randomTaskEntity() {

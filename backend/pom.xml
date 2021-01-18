@@ -21,6 +21,7 @@
     <module>rest</module>
     <module>persistence</module>
     <module>daemon</module>
+    <module>fixture</module>
   </modules>
 
   <properties>
@@ -51,6 +52,12 @@
         <groupId>com.excilys.roadmap</groupId>
         <artifactId>daemon</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.excilys.roadmap</groupId>
+        <artifactId>fixture</artifactId>
+        <version>${project.version}</version>
+        <scope>test</scope>
       </dependency>
 
       <!-- Liquibase -->

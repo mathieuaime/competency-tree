@@ -26,6 +26,10 @@
 
     <!-- Tests -->
     <dependency>
+      <groupId>com.excilys.roadmap</groupId>
+      <artifactId>fixture</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>

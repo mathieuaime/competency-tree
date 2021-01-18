@@ -1,7 +1,7 @@
 package com.excilys.roadmap.persistence.impl;
 
-import static com.excilys.roadmap.persistence.TestFixture.randomRoadmap;
-import static com.excilys.roadmap.persistence.TestFixture.randomRoadmapEntity;
+import static com.excilys.roadmap.TestFixture.randomRoadmap;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomRoadmapEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.excilys.roadmap.persistence.entity.RoadmapEntity;

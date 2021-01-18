@@ -1,10 +1,10 @@
 package com.excilys.roadmap.persistence.impl;
 
-import static com.excilys.roadmap.persistence.TestFixture.randomRoadmapEntity;
-import static com.excilys.roadmap.persistence.TestFixture.randomRoadmapItemEntity;
-import static com.excilys.roadmap.persistence.TestFixture.randomSkillEntity;
-import static com.excilys.roadmap.persistence.TestFixture.randomTask;
-import static com.excilys.roadmap.persistence.TestFixture.randomTaskEntity;
+import static com.excilys.roadmap.TestFixture.randomTaskFromId;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomRoadmapEntity;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomRoadmapItemEntity;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomSkillEntity;
+import static com.excilys.roadmap.persistence.PersistenceTestFixture.randomTaskEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.excilys.roadmap.model.Task;
@@ -60,7 +60,7 @@ class RoadmapItemRepositoryImplTest {
 
   @Test
   void create() {
-    Task task = randomTask(this.task.getId());
+    Task task = randomTaskFromId(this.task.getId());
 
     roadmapItemRepository.create(this.roadmap.getId(), this.skill.getId(), task);
 
