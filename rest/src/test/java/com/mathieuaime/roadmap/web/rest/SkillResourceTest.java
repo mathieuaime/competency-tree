@@ -34,7 +34,7 @@ class SkillResourceTest {
     var skill = TestFixture.randomSkillWithId();
     when(service.findAll()).thenReturn(List.of(skill));
 
-    var requestBuilder = get("/skills");
+    var requestBuilder = get("/api/v1/skills");
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())
@@ -51,7 +51,7 @@ class SkillResourceTest {
     var savedSkill = TestFixture.randomSkillWithId();
     when(service.save(skill)).thenReturn(savedSkill);
 
-    var requestBuilder = put("/skills")
+    var requestBuilder = put("/api/v1/skills")
         .content(objectMapper.writeValueAsString(skill))
         .contentType(MediaType.APPLICATION_JSON);
 

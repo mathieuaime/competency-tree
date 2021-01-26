@@ -1,12 +1,11 @@
 package com.mathieuaime.roadmap.service;
 
-import static java.util.stream.Collectors.toCollection;
-
 import com.mathieuaime.roadmap.model.Roadmap;
 import com.mathieuaime.roadmap.model.Skill;
 import com.mathieuaime.roadmap.repository.projection.TaskProjection;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class RoadmapExtractor {
@@ -25,7 +24,22 @@ public class RoadmapExtractor {
 
   private Collection<Skill> getSkills() {
     return projections.stream()
-        .map(TaskProjection::getSkill)
-        .collect(toCollection(() -> new TreeSet<>(Skill.categoryAndIdComparator())));
+        .reduce(new TreeSet<>(Skill.categoryAndIdComparator()),
+            (skills, projection) -> {
+              var skill = projection.getSkill();
+
+              skills.stream()
+                  .filter(s -> skill.getId().equals(s.getId()))
+                  .findFirst()
+                  .ifPresentOrElse(
+                      s -> s.getTasks().add(projection.getTask()),
+                      () -> skills.add(Skill.merge(skill, Set.of(projection.getTask()))));
+
+              return skills;
+            },
+            (skills1, skills2) -> {
+              skills1.addAll(skills2);
+              return skills1;
+            });
   }
 }

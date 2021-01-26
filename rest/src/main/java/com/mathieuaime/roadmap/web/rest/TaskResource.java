@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequestMapping("/api/v1")
 @RestController
 public class TaskResource {
   private final TaskService service;
@@ -26,7 +28,7 @@ public class TaskResource {
     return service.findAll().stream().map(TaskMapper::toDto).collect(toList());
   }
 
-  @PutMapping("/tasks/{taskId}/check")
+  @PutMapping("/me/tasks/{taskId}/check")
   public ResponseEntity<Void> check(@PathVariable long taskId) {
     // get in security context
     long userId = 1;

@@ -24,6 +24,11 @@
       <groupId>com.mathieuaime.roadmap</groupId>
       <artifactId>persistence</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.mathieuaime.roadmap</groupId>
+      <artifactId>frontend</artifactId>
+      <scope>runtime</scope>
+    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>

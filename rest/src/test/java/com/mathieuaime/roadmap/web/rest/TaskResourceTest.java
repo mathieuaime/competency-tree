@@ -35,7 +35,7 @@ class TaskResourceTest {
     var task = TestFixture.randomTaskWithId();
     when(service.findAll()).thenReturn(List.of(task));
 
-    var requestBuilder = get("/tasks");
+    var requestBuilder = get("/api/v1/tasks");
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())
@@ -54,7 +54,7 @@ class TaskResourceTest {
     var savedTask = TestFixture.randomTaskWithId();
     when(service.save(roadmapId, skillId, task)).thenReturn(savedTask);
 
-    var requestBuilder = put("/roadmaps/{roadmapId}/skills/{skillId}/tasks", roadmapId, skillId)
+    var requestBuilder = put("/api/v1/roadmaps/{roadmapId}/skills/{skillId}/tasks", roadmapId, skillId)
         .content(objectMapper.writeValueAsString(task))
         .contentType(MediaType.APPLICATION_JSON);
 
@@ -72,7 +72,7 @@ class TaskResourceTest {
     long userId = 1L;
     long taskId = 2L;
 
-    var requestBuilder = put("/tasks/{taskId}/check", taskId);
+    var requestBuilder = put("/api/v1/me/tasks/{taskId}/check", taskId);
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())

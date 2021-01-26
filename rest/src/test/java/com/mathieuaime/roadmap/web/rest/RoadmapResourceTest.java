@@ -36,7 +36,7 @@ class RoadmapResourceTest {
     var roadmap = TestFixture.randomRoadmapWithId();
     when(service.findAll()).thenReturn(List.of(roadmap));
 
-    var requestBuilder = get("/roadmaps");
+    var requestBuilder = get("/api/v1/roadmaps");
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())
@@ -51,7 +51,7 @@ class RoadmapResourceTest {
     String name = "not found";
     when(service.findByName(name)).thenReturn(Optional.empty());
 
-    var requestBuilder = get("/roadmaps/{name}", name);
+    var requestBuilder = get("/api/v1/roadmaps/{name}", name);
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())
@@ -63,7 +63,7 @@ class RoadmapResourceTest {
     var roadmap = TestFixture.randomRoadmapWithId();
     when(service.findByName(roadmap.getName())).thenReturn(Optional.of(roadmap));
 
-    var requestBuilder = MockMvcRequestBuilders.get("/roadmaps/{name}", roadmap.getName());
+    var requestBuilder = MockMvcRequestBuilders.get("/api/v1/roadmaps/{name}", roadmap.getName());
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())
@@ -79,7 +79,7 @@ class RoadmapResourceTest {
     String name = "not found";
     when(service.findByUserAndName(userId, name)).thenReturn(Optional.empty());
 
-    var requestBuilder = get("/me/roadmaps/{name}", name);
+    var requestBuilder = get("/api/v1/me/roadmaps/{name}", name);
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())
@@ -92,7 +92,7 @@ class RoadmapResourceTest {
     var roadmap = TestFixture.randomRoadmapWithId();
     when(service.findByUserAndName(userId, roadmap.getName())).thenReturn(Optional.of(roadmap));
 
-    var requestBuilder = MockMvcRequestBuilders.get("/me/roadmaps/{name}", roadmap.getName());
+    var requestBuilder = MockMvcRequestBuilders.get("/api/v1/me/roadmaps/{name}", roadmap.getName());
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())
@@ -108,7 +108,7 @@ class RoadmapResourceTest {
     var savedRoadmap = TestFixture.randomRoadmapWithId();
     when(service.save(roadmap)).thenReturn(savedRoadmap);
 
-    var requestBuilder = put("/roadmaps")
+    var requestBuilder = put("/api/v1/roadmaps")
         .content(objectMapper.writeValueAsString(roadmap))
         .contentType(MediaType.APPLICATION_JSON);
 
