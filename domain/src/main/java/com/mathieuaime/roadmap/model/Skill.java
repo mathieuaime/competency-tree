@@ -1,7 +1,6 @@
 package com.mathieuaime.roadmap.model;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
@@ -36,14 +35,7 @@ public class Skill implements Comparable<Skill> {
     this.icon = icon;
     this.name = name;
     this.done = done;
-    this.tasks = tasks;
-  }
-
-  public static Skill merge(Skill skill, Set<Task> tasks) {
-    Set<Task> newTasks = new TreeSet<>(skill.tasks);
-    newTasks.addAll(tasks);
-    boolean isSkillDone = newTasks.stream().filter(Task::isRequired).anyMatch(Task::isDone);
-    return new Skill(skill.id, skill.name, skill.icon, skill.category, isSkillDone, newTasks);
+    this.tasks = Set.copyOf(tasks);
   }
 
   public Long getId() {
