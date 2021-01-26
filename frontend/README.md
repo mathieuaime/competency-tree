@@ -1,5 +1,7 @@
 > Front-End Skill Tree
 
+Node 14.15.4
+
 ## Build Setup
 
 ``` bash

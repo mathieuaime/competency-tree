@@ -25,6 +25,7 @@ target/
 daemon/src/main/resources/public/
 
 dist/
+node/
 node_modules/
 
 .env
