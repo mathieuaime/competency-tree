@@ -24,3 +24,5 @@
 /.nb-gradle/
 
 .env
+
+.DS_Store

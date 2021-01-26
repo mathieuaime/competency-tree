@@ -11,7 +11,7 @@
     <relativePath/>
   </parent>
 
-  <groupId>com.excilys.roadmap</groupId>
+  <groupId>com.mathieuaime.roadmap</groupId>
   <artifactId>roadmap-root</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -34,27 +34,27 @@
     <dependencies>
       <!-- Internal -->
       <dependency>
-        <groupId>com.excilys.roadmap</groupId>
+        <groupId>com.mathieuaime.roadmap</groupId>
         <artifactId>domain</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.excilys.roadmap</groupId>
+        <groupId>com.mathieuaime.roadmap</groupId>
         <artifactId>rest</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.excilys.roadmap</groupId>
+        <groupId>com.mathieuaime.roadmap</groupId>
         <artifactId>persistence</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.excilys.roadmap</groupId>
+        <groupId>com.mathieuaime.roadmap</groupId>
         <artifactId>daemon</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.excilys.roadmap</groupId>
+        <groupId>com.mathieuaime.roadmap</groupId>
         <artifactId>fixture</artifactId>
         <version>${project.version}</version>
         <scope>test</scope>
