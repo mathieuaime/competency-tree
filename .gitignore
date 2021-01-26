@@ -1,5 +1,3 @@
-/target/
-
 ### STS ###
 .apt_generated
 .classpath
@@ -15,14 +13,19 @@
 *.iml
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/build/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### VS Code ###
+.vscode/
+
+daemon/src/main/resources/public/
+
+dist/
+node_modules/
 
 .env
-
 .DS_Store
