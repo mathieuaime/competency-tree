@@ -1,4 +1,4 @@
-name: backend CI
+name: maven CI
 
 on:
   push:

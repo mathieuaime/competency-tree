@@ -30,7 +30,7 @@
               <goal>install-node-and-npm</goal>
             </goals>
             <configuration>
-              <nodeVersion>v15.5.0</nodeVersion>
+              <nodeVersion>v14.15.4</nodeVersion>
             </configuration>
           </execution>
           <!-- Install all project dependencies -->
