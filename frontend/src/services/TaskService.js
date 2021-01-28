@@ -1,7 +1,7 @@
 export default {
   async save (roadmapId, skillId, task) {
     console.log(task)
-    fetch(`http://localhost:9090/api/v1/roadmaps/${roadmapId}/skills/${skillId}/tasks`, {
+    fetch(`/api/v1/roadmaps/${roadmapId}/skills/${skillId}/tasks`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -10,7 +10,7 @@ export default {
     })
   },
   async check (taskId) {
-    fetch(`http://localhost:9090/api/v1/me/tasks/${taskId}/check`, {
+    fetch(`/api/v1/me/tasks/${taskId}/check`, {
       method: 'PUT'
     })
   }

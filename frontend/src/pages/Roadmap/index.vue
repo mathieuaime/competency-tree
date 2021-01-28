@@ -1,3 +1,5 @@
+<template src="./template.html"></template>
+
 <script>
 import Note from '../Note'
 import Progression from '../Progression/Progression'
@@ -225,5 +227,4 @@ export default {
 }
 </script>
 
-<template src="./template.html"></template>
 <style lang="scss" src="./style.scss" scoped></style>
