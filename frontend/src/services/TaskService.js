@@ -1,5 +1,6 @@
+const baseUrl = process.env.API_URL || 'localhost:8080/api/v1'
+
 export default {
-  const baseUrl = process.env.API_URL || 'localhost:8080/api/v1';
 
   async save (roadmapId, skillId, task) {
     console.log(task)
