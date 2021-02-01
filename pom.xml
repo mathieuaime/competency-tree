@@ -19,7 +19,7 @@
   <modules>
     <module>api</module>
     <module>domain</module>
-    <module>rest</module>
+    <module>web</module>
     <module>persistence</module>
     <module>frontend</module>
     <module>daemon</module>
@@ -47,7 +47,7 @@
       </dependency>
       <dependency>
         <groupId>com.mathieuaime.roadmap</groupId>
-        <artifactId>rest</artifactId>
+        <artifactId>web</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

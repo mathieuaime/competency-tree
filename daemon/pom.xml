@@ -18,7 +18,7 @@
     </dependency>
     <dependency>
       <groupId>com.mathieuaime.roadmap</groupId>
-      <artifactId>rest</artifactId>
+      <artifactId>web</artifactId>
     </dependency>
     <dependency>
       <groupId>com.mathieuaime.roadmap</groupId>
