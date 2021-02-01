@@ -8,26 +8,31 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import javax.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
+@Service
 @Transactional
-public class RoadmapService {
+public class RoadmapServiceImpl implements RoadmapService {
   private final RoadmapRepository repository;
   private final TaskRepository taskRepository;
 
-  public RoadmapService(RoadmapRepository repository, TaskRepository taskRepository) {
+  public RoadmapServiceImpl(RoadmapRepository repository, TaskRepository taskRepository) {
     this.repository = repository;
     this.taskRepository = taskRepository;
   }
 
+  @Override
   public List<Roadmap> findAll() {
     return repository.findAll();
   }
 
+  @Override
   public Optional<Roadmap> findByName(String roadmapName) {
     Set<TaskProjection> allTasks = taskRepository.findByRoadmap(roadmapName);
     return new RoadmapExtractor(allTasks).getRoadmap();
   }
 
+  @Override
   public Optional<Roadmap> findByUserAndName(long userId, String roadmapName) {
     Set<TaskProjection> userTasks = taskRepository.findByUserAndRoadmap(userId, roadmapName);
     Set<TaskProjection> allTasks = taskRepository.findByRoadmap(roadmapName);
@@ -37,6 +42,7 @@ public class RoadmapService {
     return new RoadmapExtractor(userTasks).getRoadmap();
   }
 
+  @Override
   public Roadmap save(Roadmap roadmap) {
     return repository.save(roadmap);
   }

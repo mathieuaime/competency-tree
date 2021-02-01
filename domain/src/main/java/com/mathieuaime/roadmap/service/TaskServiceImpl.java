@@ -6,32 +6,38 @@ import com.mathieuaime.roadmap.repository.RoadmapItemRepository;
 import com.mathieuaime.roadmap.repository.TaskRepository;
 import java.util.List;
 import javax.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
+@Service
 @Transactional
-public class TaskService {
+public class TaskServiceImpl implements TaskService {
   private final TaskRepository repository;
   private final CheckRepository checkRepository;
   private final RoadmapItemRepository roadmapItemRepository;
 
-  public TaskService(
+  public TaskServiceImpl(
       TaskRepository repository,
       CheckRepository checkRepository,
-      RoadmapItemRepository roadmapItemRepository) {
+      RoadmapItemRepository roadmapItemRepository
+  ) {
     this.repository = repository;
     this.checkRepository = checkRepository;
     this.roadmapItemRepository = roadmapItemRepository;
   }
 
+  @Override
   public List<Task> findAll() {
     return repository.findAll();
   }
 
+  @Override
   public void check(long userId, long taskId) {
     roadmapItemRepository
         .findByTask(taskId)
         .forEach(roadmapItem -> checkRepository.check(userId, roadmapItem.getId()));
   }
 
+  @Override
   public Task save(long roadmapId, long skillId, Task task) {
     boolean creation = task.getId() == null;
 

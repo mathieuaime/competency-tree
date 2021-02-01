@@ -1,5 +1,7 @@
 package com.mathieuaime.roadmap.web.rest;
 
+import static com.mathieuaime.roadmap.TestFixture.randomSkill;
+import static com.mathieuaime.roadmap.TestFixture.randomSkillWithId;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -7,9 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.mathieuaime.roadmap.service.SkillService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mathieuaime.roadmap.TestFixture;
+import com.mathieuaime.roadmap.service.SkillService;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ class SkillResourceTest {
 
   @Test
   void findAllShouldReturnSkillsFromService() throws Exception {
-    var skill = TestFixture.randomSkillWithId();
+    var skill = randomSkillWithId();
     when(service.findAll()).thenReturn(List.of(skill));
 
     var requestBuilder = get("/api/v1/skills");
@@ -47,8 +48,8 @@ class SkillResourceTest {
 
   @Test
   void saveShouldReturnSavedSkillFromService() throws Exception {
-    var skill = TestFixture.randomSkill();
-    var savedSkill = TestFixture.randomSkillWithId();
+    var skill = randomSkill();
+    var savedSkill = randomSkillWithId();
     when(service.save(skill)).thenReturn(savedSkill);
 
     var requestBuilder = put("/api/v1/skills")

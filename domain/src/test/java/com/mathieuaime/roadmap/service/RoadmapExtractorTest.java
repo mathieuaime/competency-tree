@@ -1,5 +1,5 @@
 package com.mathieuaime.roadmap.service;
 
-class RoadmapServiceTest {
+class RoadmapExtractorTest {
 
 }

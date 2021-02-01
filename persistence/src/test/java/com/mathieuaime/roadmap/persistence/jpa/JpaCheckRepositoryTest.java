@@ -1,4 +1,4 @@
-package com.mathieuaime.roadmap.persistence.impl;
+package com.mathieuaime.roadmap.persistence.jpa;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,13 +10,13 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 
 @DataJpaTest
-@Import(CheckRepositoryImpl.class)
-class CheckRepositoryImplTest {
+@Import(JpaCheckRepository.class)
+class JpaCheckRepositoryTest {
   private static final int USER_ID = 1;
   private static final int ROADMAP_ITEM_ID = 2;
 
   @Autowired
-  private CheckRepositoryImpl checkRepository;
+  private JpaCheckRepository checkRepository;
 
   @Autowired
   private TestEntityManager em;

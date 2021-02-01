@@ -15,7 +15,7 @@
     <!-- Internal -->
     <dependency>
       <groupId>com.mathieuaime.roadmap</groupId>
-      <artifactId>domain</artifactId>
+      <artifactId>api</artifactId>
     </dependency>
 
     <!-- Spring boot web -->

@@ -1,5 +1,7 @@
 package com.mathieuaime.roadmap.web.rest;
 
+import static com.mathieuaime.roadmap.TestFixture.randomRoadmap;
+import static com.mathieuaime.roadmap.TestFixture.randomRoadmapWithId;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -7,9 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.mathieuaime.roadmap.service.RoadmapService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mathieuaime.roadmap.TestFixture;
+import com.mathieuaime.roadmap.service.RoadmapService;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
@@ -33,7 +34,7 @@ class RoadmapResourceTest {
 
   @Test
   void findAllShouldReturnRoadmapsFromService() throws Exception {
-    var roadmap = TestFixture.randomRoadmapWithId();
+    var roadmap = randomRoadmapWithId();
     when(service.findAll()).thenReturn(List.of(roadmap));
 
     var requestBuilder = get("/api/v1/roadmaps");
@@ -60,7 +61,7 @@ class RoadmapResourceTest {
 
   @Test
   void findByNameShouldReturnRoadmapFromServiceWhenFound() throws Exception {
-    var roadmap = TestFixture.randomRoadmapWithId();
+    var roadmap = randomRoadmapWithId();
     when(service.findByName(roadmap.getName())).thenReturn(Optional.of(roadmap));
 
     var requestBuilder = MockMvcRequestBuilders.get("/api/v1/roadmaps/{name}", roadmap.getName());
@@ -89,7 +90,7 @@ class RoadmapResourceTest {
   @Test
   void findUserRoadmapsShouldReturnRoadmapFromServiceWhenFound() throws Exception {
     long userId = 1L;
-    var roadmap = TestFixture.randomRoadmapWithId();
+    var roadmap = randomRoadmapWithId();
     when(service.findByUserAndName(userId, roadmap.getName())).thenReturn(Optional.of(roadmap));
 
     var requestBuilder = MockMvcRequestBuilders.get("/api/v1/me/roadmaps/{name}", roadmap.getName());
@@ -104,8 +105,8 @@ class RoadmapResourceTest {
 
   @Test
   void saveShouldReturnSavedRoadmapFromService() throws Exception {
-    var roadmap = TestFixture.randomRoadmap();
-    var savedRoadmap = TestFixture.randomRoadmapWithId();
+    var roadmap = randomRoadmap();
+    var savedRoadmap = randomRoadmapWithId();
     when(service.save(roadmap)).thenReturn(savedRoadmap);
 
     var requestBuilder = put("/api/v1/roadmaps")

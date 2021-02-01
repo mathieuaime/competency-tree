@@ -1,5 +1,7 @@
 package com.mathieuaime.roadmap.web.rest;
 
+import static com.mathieuaime.roadmap.TestFixture.randomTask;
+import static com.mathieuaime.roadmap.TestFixture.randomTaskWithId;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -8,9 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.mathieuaime.roadmap.service.TaskService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mathieuaime.roadmap.TestFixture;
+import com.mathieuaime.roadmap.service.TaskService;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ class TaskResourceTest {
 
   @Test
   void findAllShouldReturnTasksFromService() throws Exception {
-    var task = TestFixture.randomTaskWithId();
+    var task = randomTaskWithId();
     when(service.findAll()).thenReturn(List.of(task));
 
     var requestBuilder = get("/api/v1/tasks");
@@ -50,11 +51,12 @@ class TaskResourceTest {
   void saveShouldReturnSavedRoadmapFromService() throws Exception {
     long roadmapId = 1L;
     long skillId = 2L;
-    var task = TestFixture.randomTask();
-    var savedTask = TestFixture.randomTaskWithId();
+    var task = randomTask();
+    var savedTask = randomTaskWithId();
     when(service.save(roadmapId, skillId, task)).thenReturn(savedTask);
 
-    var requestBuilder = put("/api/v1/roadmaps/{roadmapId}/skills/{skillId}/tasks", roadmapId, skillId)
+    var requestBuilder = put("/api/v1/roadmaps/{roadmapId}/skills/{skillId}/tasks", roadmapId,
+        skillId)
         .content(objectMapper.writeValueAsString(task))
         .contentType(MediaType.APPLICATION_JSON);
 

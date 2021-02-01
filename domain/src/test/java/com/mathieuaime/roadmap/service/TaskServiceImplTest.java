@@ -1,6 +1,7 @@
 package com.mathieuaime.roadmap.service;
 
-import static com.mathieuaime.roadmap.fixture.TestFixture.randomTask;
+import static com.mathieuaime.roadmap.TestFixture.randomTask;
+import static com.mathieuaime.roadmap.TestFixture.randomTaskFromId;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -11,7 +12,6 @@ import com.mathieuaime.roadmap.repository.CheckRepository;
 import com.mathieuaime.roadmap.repository.RoadmapItemRepository;
 import com.mathieuaime.roadmap.repository.TaskRepository;
 import com.mathieuaime.roadmap.repository.projection.RoadmapItemProjection;
-import com.mathieuaime.roadmap.fixture.TestFixture;
 import java.util.Collections;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -22,7 +22,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class TaskServiceTest {
+class TaskServiceImplTest {
   @Mock
   private TaskRepository taskRepository;
   @Mock
@@ -31,11 +31,11 @@ class TaskServiceTest {
   private RoadmapItemRepository roadmapItemRepository;
 
   @InjectMocks
-  private TaskService taskService;
+  private TaskServiceImpl taskService;
 
   @Test
   void findAll() {
-    Task task = TestFixture.randomTask();
+    Task task = randomTask();
 
     when(taskRepository.findAll()).thenReturn(List.of(task));
 
@@ -75,7 +75,7 @@ class TaskServiceTest {
   void save_whenTheTaskDoesNotExist_shouldCreateTaskAndRoadmapItem() {
     long roadmapId = 1;
     long skillId = 2;
-    Task task = TestFixture.randomTask();
+    Task task = randomTask();
     Task expectedTask = new Task(3L, task.getName(), task.getDescription());
 
     when(taskRepository.merge(task)).thenReturn(expectedTask);
@@ -90,7 +90,7 @@ class TaskServiceTest {
   void save_whenTheTaskExists_shouldMergeTask() {
     long roadmapId = 1;
     long skillId = 2;
-    Task task = TestFixture.randomTask(3L);
+    Task task = randomTaskFromId(3L);
 
     when(taskRepository.merge(task)).thenReturn(task);
 

@@ -1,4 +1,4 @@
-package com.mathieuaime.roadmap.persistence.impl;
+package com.mathieuaime.roadmap.persistence.jpa;
 
 import com.mathieuaime.roadmap.persistence.entity.CheckEntity;
 import com.mathieuaime.roadmap.repository.CheckRepository;
@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CheckRepositoryImpl implements CheckRepository {
+public class JpaCheckRepository implements CheckRepository {
   @PersistenceContext
   private EntityManager em;
 

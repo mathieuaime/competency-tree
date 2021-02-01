@@ -1,4 +1,4 @@
-package com.mathieuaime.roadmap.persistence.impl;
+package com.mathieuaime.roadmap.persistence.jpa;
 
 import com.mathieuaime.roadmap.model.Task;
 import com.mathieuaime.roadmap.persistence.entity.RoadmapItemEntity;
@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RoadmapItemRepositoryImpl implements RoadmapItemRepository {
+public class JpaRoadmapItemRepository implements RoadmapItemRepository {
   private static final String FIND_BY_TASK = """
         SELECT new com.mathieuaime.roadmap.repository.projection.RoadmapItemProjection(ri.id) 
         FROM RoadmapItem ri 

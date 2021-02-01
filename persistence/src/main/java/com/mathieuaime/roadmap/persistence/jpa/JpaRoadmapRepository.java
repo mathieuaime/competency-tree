@@ -1,4 +1,4 @@
-package com.mathieuaime.roadmap.persistence.impl;
+package com.mathieuaime.roadmap.persistence.jpa;
 
 import com.mathieuaime.roadmap.model.Roadmap;
 import com.mathieuaime.roadmap.persistence.entity.RoadmapEntity;
@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RoadmapRepositoryImpl implements RoadmapRepository {
+public class JpaRoadmapRepository implements RoadmapRepository {
   @PersistenceContext
   private EntityManager em;
 

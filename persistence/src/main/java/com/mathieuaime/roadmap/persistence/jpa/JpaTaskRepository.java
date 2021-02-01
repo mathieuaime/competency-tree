@@ -1,4 +1,4 @@
-package com.mathieuaime.roadmap.persistence.impl;
+package com.mathieuaime.roadmap.persistence.jpa;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TaskRepositoryImpl implements TaskRepository {
+public class JpaTaskRepository implements TaskRepository {
   private static final String FIND_ALL_BY_ROADMAP_QUERY = """
         SELECT new com.mathieuaime.roadmap.repository.projection.TaskProjection(
         item.roadmap.id, item.roadmap.name, item.roadmap.description,

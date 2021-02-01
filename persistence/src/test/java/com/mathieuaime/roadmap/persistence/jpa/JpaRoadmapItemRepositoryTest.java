@@ -1,4 +1,4 @@
-package com.mathieuaime.roadmap.persistence.impl;
+package com.mathieuaime.roadmap.persistence.jpa;
 
 import static com.mathieuaime.roadmap.persistence.PersistenceTestFixture.randomRoadmapEntity;
 import static com.mathieuaime.roadmap.persistence.PersistenceTestFixture.randomRoadmapItemEntity;
@@ -20,10 +20,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 
 @DataJpaTest
-@Import(RoadmapItemRepositoryImpl.class)
-class RoadmapItemRepositoryImplTest {
+@Import(JpaRoadmapItemRepository.class)
+class JpaRoadmapItemRepositoryTest {
   @Autowired
-  private RoadmapItemRepositoryImpl roadmapItemRepository;
+  private JpaRoadmapItemRepository roadmapItemRepository;
 
   @Autowired
   private TestEntityManager em;

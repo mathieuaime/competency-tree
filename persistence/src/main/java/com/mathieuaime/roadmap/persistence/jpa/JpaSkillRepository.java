@@ -1,4 +1,4 @@
-package com.mathieuaime.roadmap.persistence.impl;
+package com.mathieuaime.roadmap.persistence.jpa;
 
 import static java.util.stream.Collectors.toList;
 
@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class SkillRepositoryImpl implements SkillRepository {
+public class JpaSkillRepository implements SkillRepository {
   @PersistenceContext
   private EntityManager em;
 

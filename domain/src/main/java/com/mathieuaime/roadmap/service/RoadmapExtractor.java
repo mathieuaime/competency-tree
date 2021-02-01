@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class RoadmapExtractor {
+class RoadmapExtractor {
   private final Collection<TaskProjection> projections;
 
   public RoadmapExtractor(Collection<TaskProjection> projections) {
