@@ -9,6 +9,10 @@ import com.mathieuaime.roadmap.web.dto.TaskDto;
 import java.util.Set;
 
 public final class SkillMapper {
+  private SkillMapper() {
+    throw new AssertionError();
+  }
+
   public static Skill toModel(SkillDto dto) {
     Set<Task> tasks = dto.getTasks().stream().map(TaskMapper::toModel).collect(toSet());
     return new Skill(dto.getId(), dto.getName(), dto.getIcon(), dto.getCategory(), dto.isDone(),

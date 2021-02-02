@@ -9,6 +9,10 @@ import com.mathieuaime.roadmap.web.dto.SkillDto;
 import java.util.Collection;
 
 public final class RoadmapMapper {
+  private RoadmapMapper() {
+    throw new AssertionError();
+  }
+
   public static Roadmap toModel(RoadmapDto dto) {
     Collection<Skill> skills = dto.getSkills().stream().map(SkillMapper::toModel).collect(toList());
     return new Roadmap(dto.getId(), dto.getName(), dto.getDescription(), skills);
