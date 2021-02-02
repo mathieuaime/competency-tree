@@ -4,9 +4,7 @@ import com.mathieuaime.roadmap.model.Skill;
 import com.mathieuaime.roadmap.repository.SkillRepository;
 import java.util.List;
 import javax.transaction.Transactional;
-import org.springframework.stereotype.Service;
 
-@Service
 @Transactional
 public class SkillServiceImpl implements SkillService {
   private final SkillRepository repository;

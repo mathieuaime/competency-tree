@@ -6,9 +6,7 @@ import com.mathieuaime.roadmap.repository.RoadmapItemRepository;
 import com.mathieuaime.roadmap.repository.TaskRepository;
 import java.util.List;
 import javax.transaction.Transactional;
-import org.springframework.stereotype.Service;
 
-@Service
 @Transactional
 public class TaskServiceImpl implements TaskService {
   private final TaskRepository repository;
