@@ -14,14 +14,14 @@ public class ArchUnitIT {
 
     LayeredArchitecture arch = layeredArchitecture()
         // Define layers
+        .layer("Config").definedBy("..config..")
+        .layer("Persistence").definedBy("..persistence..")
         .layer("Web").definedBy("..web..")
         .layer("Domain").definedBy("..service..", "..model..", "..repository..")
-        .layer("Persistence").definedBy("..persistence..")
-        .layer("Config").definedBy("..config..")
         // Add constraints
-        .whereLayer("Web").mayNotBeAccessedByAnyLayer()
-        .whereLayer("Persistence").mayNotBeAccessedByAnyLayer()
         .whereLayer("Config").mayNotBeAccessedByAnyLayer()
+        .whereLayer("Persistence").mayNotBeAccessedByAnyLayer()
+        .whereLayer("Web").mayNotBeAccessedByAnyLayer()
         .whereLayer("Domain").mayOnlyBeAccessedByLayers("Web", "Persistence", "Config");
 
     arch.check(jc);
