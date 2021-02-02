@@ -18,7 +18,8 @@ import javax.persistence.UniqueConstraint;
 @Entity(name = "RoadmapItem")
 @Table(name = "roadmap_item",
     indexes = @Index(columnList = "task_id"),
-    uniqueConstraints = @UniqueConstraint(columnNames = {"roadmap_id", "skill_id", "task_id"}))
+    uniqueConstraints = @UniqueConstraint(columnNames = {"roadmap_id", "skill_id", "task_id"})
+)
 public class RoadmapItemEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,13 +47,25 @@ public class RoadmapItemEntity {
   public RoadmapItemEntity() {
   }
 
-  public RoadmapItemEntity(long roadmapId, long skillId, long taskId, boolean required, Category category) {
+  public RoadmapItemEntity(
+      long roadmapId,
+      long skillId,
+      long taskId,
+      boolean required,
+      Category category
+  ) {
     this(null, new RoadmapEntity(roadmapId), new SkillEntity(skillId), new TaskEntity(taskId),
         required, category);
   }
 
-  public RoadmapItemEntity(Long id, RoadmapEntity roadmap, SkillEntity skill, TaskEntity task,
-      boolean required, Category category) {
+  public RoadmapItemEntity(
+      Long id,
+      RoadmapEntity roadmap,
+      SkillEntity skill,
+      TaskEntity task,
+      boolean required,
+      Category category
+  ) {
     this.id = id;
     this.roadmap = roadmap;
     this.skill = skill;

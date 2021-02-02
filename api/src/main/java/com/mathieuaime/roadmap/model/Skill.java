@@ -28,8 +28,14 @@ public class Skill implements Comparable<Skill> {
     this(id, name, icon, category, true, new TreeSet<>());
   }
 
-  public Skill(Long id, String name, String icon, Category category, boolean done,
-      Set<Task> tasks) {
+  public Skill(
+      Long id,
+      String name,
+      String icon,
+      Category category,
+      boolean done,
+      Set<Task> tasks
+  ) {
     this.id = id;
     this.category = category;
     this.icon = icon;
@@ -63,6 +69,12 @@ public class Skill implements Comparable<Skill> {
   }
 
   @Override
+  public int compareTo(Skill o) {
+    int nameCompare = name.compareTo(o.name);
+    return nameCompare == 0 ? category.compareTo(o.category) : nameCompare;
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -88,12 +100,8 @@ public class Skill implements Comparable<Skill> {
         ", category=" + category +
         ", icon='" + icon + '\'' +
         ", name='" + name + '\'' +
+        ", tasks=" + tasks +
+        ", done=" + done +
         '}';
-  }
-
-  @Override
-  public int compareTo(Skill o) {
-    int nameCompare = name.compareTo(o.name);
-    return nameCompare == 0 ? category.compareTo(o.category) : nameCompare;
   }
 }

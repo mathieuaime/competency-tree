@@ -10,8 +10,14 @@ public class Task implements Comparable<Task> {
   private final boolean required;
   private final Category category;
 
-  public Task(Long id, String name, String description, boolean done, boolean required,
-      Category category) {
+  public Task(
+      Long id,
+      String name,
+      String description,
+      boolean done,
+      boolean required,
+      Category category
+  ) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -49,6 +55,11 @@ public class Task implements Comparable<Task> {
   }
 
   @Override
+  public int compareTo(Task o) {
+    return name.compareTo(o.name);
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -80,10 +91,5 @@ public class Task implements Comparable<Task> {
         ", required=" + required +
         ", category=" + category +
         '}';
-  }
-
-  @Override
-  public int compareTo(Task o) {
-    return name.compareTo(o.name);
   }
 }

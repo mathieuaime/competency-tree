@@ -25,21 +25,17 @@ public class Roadmap {
     return id;
   }
 
-
   public String getName() {
     return name;
   }
-
 
   public String getDescription() {
     return description;
   }
 
-
   public Collection<Skill> getSkills() {
     return skills;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -66,6 +62,7 @@ public class Roadmap {
         "id=" + id +
         ", name='" + name + '\'' +
         ", description='" + description + '\'' +
+        ", skills=" + skills +
         '}';
   }
 }

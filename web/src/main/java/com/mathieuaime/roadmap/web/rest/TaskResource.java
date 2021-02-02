@@ -38,13 +38,15 @@ public class TaskResource {
   }
 
   @PutMapping("/roadmaps/{roadmapId}/skills/{skillId}/tasks")
-  public TaskDto save(@RequestBody TaskDto taskDto, @PathVariable int roadmapId,
-      @PathVariable int skillId) {
+  public TaskDto save(
+      @RequestBody TaskDto taskDto,
+      @PathVariable int roadmapId,
+      @PathVariable int skillId
+  ) {
     var task = TaskMapper.toModel(taskDto);
 
     task = service.save(roadmapId, skillId, task);
-    taskDto = TaskMapper.toDto(task);
 
-    return taskDto;
+    return TaskMapper.toDto(task);
   }
 }

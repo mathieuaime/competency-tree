@@ -29,9 +29,8 @@ public class JpaRoadmapItemRepository implements RoadmapItemRepository {
 
   @Override
   public void create(long roadmapId, long skillId, Task task) {
-    RoadmapItemEntity entity =
-        new RoadmapItemEntity(roadmapId, skillId, task.getId(), task.isRequired(),
-            task.getCategory());
+    RoadmapItemEntity entity = new RoadmapItemEntity(roadmapId, skillId, task.getId(),
+        task.isRequired(), task.getCategory());
     em.persist(entity);
   }
 }

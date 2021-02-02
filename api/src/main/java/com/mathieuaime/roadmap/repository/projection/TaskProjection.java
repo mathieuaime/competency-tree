@@ -14,10 +14,20 @@ public class TaskProjection {
   private final boolean required;
   private final Category category;
 
-  public TaskProjection(long roadmapId, String roadmapName, String roadmapDescription,
-      long skillId, String skillName, String skillIcon,
-      long taskId, String taskName, String taskDescription,
-      Category category, Boolean done, Boolean required) {
+  public TaskProjection(
+      long roadmapId,
+      String roadmapName,
+      String roadmapDescription,
+      long skillId,
+      String skillName,
+      String skillIcon,
+      long taskId,
+      String taskName,
+      String taskDescription,
+      Category category,
+      Boolean done,
+      Boolean required
+  ) {
     this.task = new Task(taskId, taskName, taskDescription, done, required, category);
     this.skill = new Skill(skillId, skillName, skillIcon, category);
     this.roadmap = new Roadmap(roadmapId, roadmapName, roadmapDescription);
@@ -67,5 +77,17 @@ public class TaskProjection {
   @Override
   public int hashCode() {
     return Objects.hash(roadmap.getId(), skill.getId(), task.getId());
+  }
+
+  @Override
+  public String toString() {
+    return "TaskProjection{" +
+        "roadmap=" + roadmap +
+        ", skill=" + skill +
+        ", task=" + task +
+        ", done=" + done +
+        ", required=" + required +
+        ", category=" + category +
+        '}';
   }
 }

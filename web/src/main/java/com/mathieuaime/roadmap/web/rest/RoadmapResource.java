@@ -50,8 +50,7 @@ public class RoadmapResource {
     var roadmap = RoadmapMapper.toModel(roadmapDto);
 
     roadmap = service.save(roadmap);
-    roadmapDto = RoadmapMapper.toDto(roadmap);
 
-    return roadmapDto;
+    return RoadmapMapper.toDto(roadmap);
   }
 }

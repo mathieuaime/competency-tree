@@ -31,9 +31,8 @@ public class SkillResource {
     var skill = SkillMapper.toModel(skillDto);
 
     skill = service.save(skill);
-    skillDto = SkillMapper.toDto(skill);
 
-    return skillDto;
+    return SkillMapper.toDto(skill);
   }
 }
 

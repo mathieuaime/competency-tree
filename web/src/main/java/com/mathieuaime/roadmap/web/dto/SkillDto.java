@@ -16,8 +16,14 @@ public class SkillDto {
   public SkillDto() {
   }
 
-  public SkillDto(Long id, String name, String icon, Category category, boolean done,
-      Collection<TaskDto> tasks) {
+  public SkillDto(
+      Long id,
+      String name,
+      String icon,
+      Category category,
+      boolean done,
+      Collection<TaskDto> tasks
+  ) {
     this.id = id;
     this.name = name;
     this.icon = icon;

@@ -33,7 +33,8 @@ class RoadmapExtractor {
                   .findFirst()
                   .ifPresentOrElse(
                       s -> merge(s, projection.getTask()),
-                      () -> skills.add(merge(projection.getSkill(), projection.getTask())));
+                      () -> skills.add(merge(projection.getSkill(), projection.getTask()))
+                  );
 
               return skills;
             },
