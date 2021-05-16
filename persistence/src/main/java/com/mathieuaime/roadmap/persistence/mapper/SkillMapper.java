@@ -4,6 +4,7 @@ import com.mathieuaime.roadmap.model.Skill;
 import com.mathieuaime.roadmap.persistence.entity.SkillEntity;
 
 public final class SkillMapper {
+
   private SkillMapper() {
     throw new AssertionError();
   }

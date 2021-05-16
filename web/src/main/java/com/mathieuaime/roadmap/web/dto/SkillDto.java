@@ -2,16 +2,17 @@ package com.mathieuaime.roadmap.web.dto;
 
 import com.mathieuaime.roadmap.model.Category;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 public class SkillDto {
+
   private Long id;
   private String name;
   private String icon;
   private Category category;
   private boolean done;
-  private Collection<TaskDto> tasks = new ArrayList<>();
+  private List<TaskDto> tasks = new ArrayList<>();
 
   public SkillDto() {
   }
@@ -22,14 +23,14 @@ public class SkillDto {
       String icon,
       Category category,
       boolean done,
-      Collection<TaskDto> tasks
+      List<TaskDto> tasks
   ) {
     this.id = id;
     this.name = name;
     this.icon = icon;
     this.category = category;
     this.done = done;
-    this.tasks = tasks;
+    this.tasks = List.copyOf(tasks);
   }
 
   public Long getId() {
@@ -72,12 +73,12 @@ public class SkillDto {
     this.done = done;
   }
 
-  public Collection<TaskDto> getTasks() {
+  public List<TaskDto> getTasks() {
     return tasks;
   }
 
-  public void setTasks(Collection<TaskDto> tasks) {
-    this.tasks = tasks;
+  public void setTasks(List<TaskDto> tasks) {
+    this.tasks = List.copyOf(tasks);
   }
 
   @Override
@@ -89,16 +90,17 @@ public class SkillDto {
       return false;
     }
     SkillDto skillDto = (SkillDto) o;
-    return done == skillDto.done &&
-        Objects.equals(id, skillDto.id) &&
-        category == skillDto.category &&
-        Objects.equals(icon, skillDto.icon) &&
-        Objects.equals(name, skillDto.name);
+    return done == skillDto.done
+        && Objects.equals(id, skillDto.id)
+        && Objects.equals(name, skillDto.name)
+        && Objects.equals(icon, skillDto.icon)
+        && category == skillDto.category
+        && Objects.equals(tasks, skillDto.tasks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, category, done, icon, name);
+    return Objects.hash(id, name, icon, category, done, tasks);
   }
 
   @Override
@@ -109,6 +111,7 @@ public class SkillDto {
         ", done='" + done + '\'' +
         ", icon='" + icon + '\'' +
         ", name='" + name + '\'' +
+        ", tasks='" + tasks + '\'' +
         '}';
   }
 }

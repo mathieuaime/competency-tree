@@ -7,6 +7,7 @@ import com.mathieuaime.roadmap.model.Task;
 import java.util.Objects;
 
 public class TaskProjection {
+
   private final Roadmap roadmap;
   private final Skill skill;
   private final Task task;

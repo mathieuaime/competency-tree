@@ -14,10 +14,11 @@ import javax.persistence.Table;
 @Entity(name = "Check")
 @Table(name = "user_check", indexes = @Index(columnList = "user_id"))
 public class CheckEntity {
+
   @EmbeddedId
   @AttributeOverrides({
       @AttributeOverride(name = "userId", column = @Column(name = "user_id")),
-      @AttributeOverride(name = "roadmap_item_id", column = @Column(name = "roadmap_item_id"))
+      @AttributeOverride(name = "roadmapItemId", column = @Column(name = "roadmap_item_id"))
   })
   private CheckId id;
   private boolean done = false;
@@ -56,10 +57,11 @@ public class CheckEntity {
 
   @Embeddable
   private static class CheckId implements Serializable {
+
     private long userId;
     private long roadmapItemId;
 
-    private CheckId() {
+    public CheckId() {
     }
 
     public CheckId(long userId, long roadmapItemId) {
@@ -78,8 +80,8 @@ public class CheckEntity {
       }
 
       CheckId that = (CheckId) o;
-      return Objects.equals(userId, that.userId) && Objects
-          .equals(roadmapItemId, that.roadmapItemId);
+      return Objects.equals(userId, that.userId)
+          && Objects.equals(roadmapItemId, that.roadmapItemId);
     }
 
     @Override

@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Entity(name = "Task")
 @Table(name = "task")
 public class TaskEntity {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

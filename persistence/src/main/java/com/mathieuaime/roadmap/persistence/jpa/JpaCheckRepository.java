@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class JpaCheckRepository implements CheckRepository {
+
   @PersistenceContext
   private EntityManager em;
 

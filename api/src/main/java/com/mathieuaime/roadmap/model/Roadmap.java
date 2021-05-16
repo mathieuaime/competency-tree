@@ -1,24 +1,27 @@
 package com.mathieuaime.roadmap.model;
 
+import static java.util.Collections.emptySet;
+
 import java.util.Collection;
 import java.util.Objects;
-import java.util.TreeSet;
+import java.util.Set;
 
 public class Roadmap {
+
   private final Long id;
   private final String name;
   private final String description;
-  private final Collection<Skill> skills;
+  private final Set<Skill> skills;
 
   public Roadmap(Long id, String name, String description) {
-    this(id, name, description, new TreeSet<>(Skill.categoryAndIdComparator()));
+    this(id, name, description, emptySet());
   }
 
   public Roadmap(Long id, String name, String description, Collection<Skill> skills) {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.skills = skills;
+    this.skills = Set.copyOf(skills);
   }
 
   public Long getId() {
@@ -33,7 +36,7 @@ public class Roadmap {
     return description;
   }
 
-  public Collection<Skill> getSkills() {
+  public Set<Skill> getSkills() {
     return skills;
   }
 

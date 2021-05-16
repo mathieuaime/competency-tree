@@ -3,6 +3,7 @@ package com.mathieuaime.roadmap.model;
 import java.util.Objects;
 
 public class Task implements Comparable<Task> {
+
   private final Long id;
   private final String name;
   private final String description;

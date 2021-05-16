@@ -6,9 +6,9 @@ import static com.mathieuaime.roadmap.persistence.PersistenceTestFixture.randomS
 import static com.mathieuaime.roadmap.persistence.PersistenceTestFixture.randomTaskEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.mathieuaime.roadmap.TestFixture;
 import com.mathieuaime.roadmap.persistence.entity.CheckEntity;
 import com.mathieuaime.roadmap.persistence.entity.TaskEntity;
-import com.mathieuaime.roadmap.TestFixture;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,6 +20,7 @@ import org.springframework.context.annotation.Import;
 @DataJpaTest
 @Import(JpaTaskRepository.class)
 class JpaTaskRepositoryTest {
+
   @Autowired
   private JpaTaskRepository taskRepository;
 

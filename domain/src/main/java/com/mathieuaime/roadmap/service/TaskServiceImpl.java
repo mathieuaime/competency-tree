@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 @Transactional
 public class TaskServiceImpl implements TaskService {
+
   private final TaskRepository repository;
   private final CheckRepository checkRepository;
   private final RoadmapItemRepository roadmapItemRepository;

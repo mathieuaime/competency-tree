@@ -1,4 +1,4 @@
-const baseUrl = process.env.API_URL || 'localhost:8080/api/v1'
+const baseUrl = process.env.API_URL
 
 export default {
 

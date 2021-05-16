@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class JpaSkillRepository implements SkillRepository {
+
   @PersistenceContext
   private EntityManager em;
 

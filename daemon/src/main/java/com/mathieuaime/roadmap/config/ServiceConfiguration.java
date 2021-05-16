@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ServiceConfiguration {
+
   @Bean
   public RoadmapService roadmapService(
       RoadmapRepository roadmapRepository,

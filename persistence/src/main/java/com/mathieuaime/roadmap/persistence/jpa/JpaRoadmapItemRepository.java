@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class JpaRoadmapItemRepository implements RoadmapItemRepository {
+
   private static final String FIND_BY_TASK = """
         SELECT new com.mathieuaime.roadmap.repository.projection.RoadmapItemProjection(ri.id) 
         FROM RoadmapItem ri 

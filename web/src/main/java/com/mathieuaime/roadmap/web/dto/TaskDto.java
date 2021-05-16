@@ -4,6 +4,7 @@ import com.mathieuaime.roadmap.model.Category;
 import java.util.Objects;
 
 public class TaskDto {
+
   private Long id;
   private String name;
   private String description;

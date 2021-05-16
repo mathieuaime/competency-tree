@@ -1,6 +1,8 @@
-package com.mathieuaime.roadmap.web.rest;
+package com.mathieuaime.roadmap.web;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestApplication {}
+public class TestApplication {
+
+}

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 @RestController
 public class RoadmapResource {
+
   private final RoadmapService service;
 
   public RoadmapResource(RoadmapService service) {

@@ -4,13 +4,17 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.library.Architectures.LayeredArchitecture;
 import org.junit.jupiter.api.Test;
 
 public class ArchUnitIT {
+
   @Test
   void architecture() {
-    JavaClasses jc = new ClassFileImporter().importPackages("com.mathieuaime.roadmap");
+    JavaClasses jc = new ClassFileImporter()
+        .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
+        .importPackages("com.mathieuaime.roadmap");
 
     LayeredArchitecture arch = layeredArchitecture()
         // Define layers

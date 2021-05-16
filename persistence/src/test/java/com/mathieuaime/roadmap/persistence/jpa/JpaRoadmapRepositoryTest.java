@@ -3,8 +3,8 @@ package com.mathieuaime.roadmap.persistence.jpa;
 import static com.mathieuaime.roadmap.persistence.PersistenceTestFixture.randomRoadmapEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.mathieuaime.roadmap.persistence.entity.RoadmapEntity;
 import com.mathieuaime.roadmap.TestFixture;
+import com.mathieuaime.roadmap.persistence.entity.RoadmapEntity;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Import;
 @DataJpaTest
 @Import(JpaRoadmapRepository.class)
 class JpaRoadmapRepositoryTest {
+
   @Autowired
   private JpaRoadmapRepository roadmapRepository;
 

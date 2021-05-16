@@ -21,6 +21,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(SkillResource.class)
 class SkillResourceTest {
+
   @Autowired
   private MockMvc mockMvc;
 

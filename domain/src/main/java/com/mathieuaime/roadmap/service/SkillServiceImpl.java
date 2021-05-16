@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 @Transactional
 public class SkillServiceImpl implements SkillService {
+
   private final SkillRepository repository;
 
   public SkillServiceImpl(SkillRepository repository) {

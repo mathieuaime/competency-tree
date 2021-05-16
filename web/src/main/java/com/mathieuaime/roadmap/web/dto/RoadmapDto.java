@@ -1,19 +1,20 @@
 package com.mathieuaime.roadmap.web.dto;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public class RoadmapDto {
+
   private Long id;
   private String name;
   private String description;
-  private Collection<SkillDto> skills = new ArrayList<>();
+  private List<SkillDto> skills = Collections.emptyList();
 
   public RoadmapDto() {
   }
 
-  public RoadmapDto(Long id, String name, String description, Collection<SkillDto> skills) {
+  public RoadmapDto(Long id, String name, String description, List<SkillDto> skills) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -44,11 +45,11 @@ public class RoadmapDto {
     this.description = description;
   }
 
-  public Collection<SkillDto> getSkills() {
+  public List<SkillDto> getSkills() {
     return skills;
   }
 
-  public void setSkills(Collection<SkillDto> skills) {
+  public void setSkills(List<SkillDto> skills) {
     this.skills = skills;
   }
 
@@ -60,15 +61,16 @@ public class RoadmapDto {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RoadmapDto roadmapDto = (RoadmapDto) o;
-    return Objects.equals(id, roadmapDto.id) &&
-        Objects.equals(name, roadmapDto.name) &&
-        Objects.equals(description, roadmapDto.description);
+    RoadmapDto that = (RoadmapDto) o;
+    return Objects.equals(id, that.id)
+        && Objects.equals(name, that.name)
+        && Objects.equals(description, that.description)
+        && Objects.equals(skills, that.skills);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description);
+    return Objects.hash(id, name, description, skills);
   }
 
   @Override
@@ -77,6 +79,7 @@ public class RoadmapDto {
         "id=" + id +
         ", name='" + name + '\'' +
         ", description='" + description + '\'' +
+        ", skills='" + skills + '\'' +
         '}';
   }
 }

@@ -3,8 +3,8 @@ package com.mathieuaime.roadmap.persistence.jpa;
 import static com.mathieuaime.roadmap.persistence.PersistenceTestFixture.randomSkillEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.mathieuaime.roadmap.persistence.entity.SkillEntity;
 import com.mathieuaime.roadmap.TestFixture;
+import com.mathieuaime.roadmap.persistence.entity.SkillEntity;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Import;
 @DataJpaTest
 @Import(JpaSkillRepository.class)
 class JpaSkillRepositoryTest {
+
   @Autowired
   private JpaSkillRepository skillRepository;
 

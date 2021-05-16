@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface TaskRepository {
+
   List<Task> findAll();
 
   Set<TaskProjection> findByRoadmap(String roadmapName);

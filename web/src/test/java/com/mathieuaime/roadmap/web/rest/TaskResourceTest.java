@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(TaskResource.class)
 class TaskResourceTest {
+
   @Autowired
   private MockMvc mockMvc;
 

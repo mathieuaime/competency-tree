@@ -1,31 +1,29 @@
 package com.mathieuaime.roadmap.model;
 
+import static java.util.Collections.emptySet;
+
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Skill implements Comparable<Skill> {
+
   private static final Comparator<Skill> CATEGORY_AND_ID_COMPARATOR =
       Comparator.comparing(Skill::getCategory).thenComparing(Skill::getId);
-
-  public static Comparator<Skill> categoryAndIdComparator() {
-    return CATEGORY_AND_ID_COMPARATOR;
-  }
-
   private final Long id;
   private final Category category;
   private final String icon;
   private final String name;
   private final Set<Task> tasks;
-  private final boolean done;
+  private boolean done;
 
   public Skill(Long id, String name, String icon) {
     this(id, name, icon, null);
   }
 
   public Skill(Long id, String name, String icon, Category category) {
-    this(id, name, icon, category, true, new TreeSet<>());
+    this(id, name, icon, category, true, emptySet());
   }
 
   public Skill(
@@ -41,7 +39,12 @@ public class Skill implements Comparable<Skill> {
     this.icon = icon;
     this.name = name;
     this.done = done;
-    this.tasks = Set.copyOf(tasks);
+    this.tasks = new TreeSet<>();
+    this.tasks.addAll(tasks);
+  }
+
+  public static Comparator<Skill> categoryAndIdComparator() {
+    return CATEGORY_AND_ID_COMPARATOR;
   }
 
   public Long getId() {
@@ -61,7 +64,12 @@ public class Skill implements Comparable<Skill> {
   }
 
   public Set<Task> getTasks() {
-    return tasks;
+    return Set.copyOf(tasks);
+  }
+
+  public void addTask(Task task) {
+    tasks.add(task);
+    done = done && (!task.isRequired() || task.isDone());
   }
 
   public boolean isDone() {
@@ -70,8 +78,8 @@ public class Skill implements Comparable<Skill> {
 
   @Override
   public int compareTo(Skill o) {
-    int nameCompare = name.compareTo(o.name);
-    return nameCompare == 0 ? category.compareTo(o.category) : nameCompare;
+    int categoryCompare = category.compareTo(o.category);
+    return categoryCompare == 0 ? name.compareTo(o.name) : categoryCompare;
   }
 
   @Override

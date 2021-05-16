@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class PersistenceTestFixture {
+
   private static final Category[] CATEGORIES = Category.values();
 
   public static RoadmapEntity randomRoadmapEntity() {

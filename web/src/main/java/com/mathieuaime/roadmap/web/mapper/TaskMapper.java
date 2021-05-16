@@ -4,6 +4,7 @@ import com.mathieuaime.roadmap.model.Task;
 import com.mathieuaime.roadmap.web.dto.TaskDto;
 
 public final class TaskMapper {
+
   private TaskMapper() {
     throw new AssertionError();
   }

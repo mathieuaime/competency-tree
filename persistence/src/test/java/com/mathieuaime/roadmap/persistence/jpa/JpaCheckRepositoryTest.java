@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Import;
 @DataJpaTest
 @Import(JpaCheckRepository.class)
 class JpaCheckRepositoryTest {
+
   private static final int USER_ID = 1;
   private static final int ROADMAP_ITEM_ID = 2;
 

@@ -4,6 +4,7 @@ import com.mathieuaime.roadmap.model.Roadmap;
 import com.mathieuaime.roadmap.persistence.entity.RoadmapEntity;
 
 public final class RoadmapMapper {
+
   private RoadmapMapper() {
     throw new AssertionError();
   }

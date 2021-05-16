@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @WebMvcTest(RoadmapResource.class)
 class RoadmapResourceTest {
+
   @Autowired
   private MockMvc mockMvc;
 
@@ -93,7 +94,8 @@ class RoadmapResourceTest {
     var roadmap = randomRoadmapWithId();
     when(service.findByUserAndName(userId, roadmap.getName())).thenReturn(Optional.of(roadmap));
 
-    var requestBuilder = MockMvcRequestBuilders.get("/api/v1/me/roadmaps/{name}", roadmap.getName());
+    var requestBuilder = MockMvcRequestBuilders
+        .get("/api/v1/me/roadmaps/{name}", roadmap.getName());
 
     this.mockMvc.perform(requestBuilder)
         .andDo(print())

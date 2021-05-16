@@ -21,6 +21,7 @@ import javax.persistence.UniqueConstraint;
     uniqueConstraints = @UniqueConstraint(columnNames = {"roadmap_id", "skill_id", "task_id"})
 )
 public class RoadmapItemEntity {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

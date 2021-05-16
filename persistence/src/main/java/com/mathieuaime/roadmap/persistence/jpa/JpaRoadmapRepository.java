@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class JpaRoadmapRepository implements RoadmapRepository {
+
   @PersistenceContext
   private EntityManager em;
 

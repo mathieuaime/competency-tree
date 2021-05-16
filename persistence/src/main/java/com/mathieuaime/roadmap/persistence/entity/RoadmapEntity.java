@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Entity(name = "Roadmap")
 @Table(name = "roadmap")
 public class RoadmapEntity {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

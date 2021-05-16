@@ -3,6 +3,7 @@ package com.mathieuaime.roadmap.repository.projection;
 import java.util.Objects;
 
 public class RoadmapItemProjection {
+
   private final long id;
 
   public RoadmapItemProjection(long id) {
