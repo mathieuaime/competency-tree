@@ -19,4 +19,4 @@ jobs:
         java-version: 15
 
     - name: Test with maven
-      run: mvn -B clean verify --file pom.xml
+      run: mvn -B verify --file pom.xml

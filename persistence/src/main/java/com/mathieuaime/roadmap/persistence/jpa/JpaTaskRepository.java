@@ -33,10 +33,10 @@ public class JpaTaskRepository implements TaskRepository {
         item.roadmap.id, item.roadmap.name, item.roadmap.description,
         item.skill.id, item.skill.name, item.skill.icon,
         item.task.id, item.task.name, item.task.description,
-        item.category, c.done, item.required) 
-        FROM RoadmapItem item 
-        LEFT JOIN Check c on item.id = c.id.roadmapItemId 
-        WHERE c.id.userId = ?1 
+        item.category, c.done, item.required)
+        FROM RoadmapItem item
+        LEFT JOIN Check c on item.id = c.id.roadmapItemId
+        WHERE c.id.userId = ?1
         AND item.roadmap.name = ?2
       """;
 
