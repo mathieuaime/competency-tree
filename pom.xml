@@ -27,9 +27,8 @@
   </modules>
 
   <properties>
-    <java.version>15</java.version>
-    <liquibase.version>4.1.1</liquibase.version>
-    <archunit-junit5.version>0.14.1</archunit-junit5.version>
+    <java.version>16</java.version>
+    <archunit-junit5.version>0.18.0</archunit-junit5.version>
     <testcontainers.version>1.15.3</testcontainers.version>
   </properties>
 
@@ -71,13 +70,6 @@
         <artifactId>fixture</artifactId>
         <version>${project.version}</version>
         <scope>test</scope>
-      </dependency>
-
-      <!-- Liquibase -->
-      <dependency>
-        <groupId>org.liquibase</groupId>
-        <artifactId>liquibase-core</artifactId>
-        <version>${liquibase.version}</version>
       </dependency>
 
       <!-- Tests -->
