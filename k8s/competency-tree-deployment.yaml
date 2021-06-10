@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: competency-tree
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: competency-tree
+  strategy: { }
+  template:
+    metadata:
+      labels:
+        app: competency-tree
+    spec:
+      containers:
+        - image: registry.com/competency-tree:snapshot
+          name: competency-tree
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mariadb://competency-tree-db:3306/competency-tree
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: compentecy-tree-db-user-pass
+                  key: username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: compentecy-tree-db-user-pass
+                  key: password

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: competency-tree-db
+spec:
+  selector:
+    app: competency-tree-db
+  ports:
+    - port: 3306
+      targetPort: 3306

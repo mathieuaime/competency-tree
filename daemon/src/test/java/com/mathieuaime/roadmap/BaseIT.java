@@ -30,8 +30,8 @@ abstract class BaseIT {
   @DynamicPropertySource
   static void dbProperties(DynamicPropertyRegistry registry) {
     registry.add("spring.datasource.url", mariaDBContainer::getJdbcUrl);
-    registry.add("spring.datasource.password", mariaDBContainer::getPassword);
     registry.add("spring.datasource.username", mariaDBContainer::getUsername);
+    registry.add("spring.datasource.password", mariaDBContainer::getPassword);
   }
 
   String getBaseUrl() {

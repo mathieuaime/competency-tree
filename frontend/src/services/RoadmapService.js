@@ -1,4 +1,4 @@
-const baseUrl = process.env.API_URL
+const baseUrl = process.env.API_URL || ''
 
 export default {
 

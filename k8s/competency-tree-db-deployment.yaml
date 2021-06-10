@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: competency-tree-db
+spec:
+  selector:
+    matchLabels:
+      app: competency-tree-db
+  template:
+    metadata:
+      labels:
+        app: competency-tree-db
+    spec:
+      containers:
+        - name: competency-tree-db
+          image: mariadb
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MARIADB_RANDOM_ROOT_PASSWORD
+              value: "yes"
+            - name: MARIADB_DATABASE
+              value: "competency-tree"
+            - name: MARIADB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: compentecy-tree-db-user-pass
+                  key: username
+            - name: MARIADB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: compentecy-tree-db-user-pass
+                  key: password
+          volumeMounts:
+            - name: competency-tree-db-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: competency-tree-db-storage
+          persistentVolumeClaim:
+            claimName: competency-tree-db-pvc
