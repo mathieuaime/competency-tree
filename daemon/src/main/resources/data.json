@@ -1,0 +1,33 @@
+{
+  "roadmaps": [
+    {
+      "id": 1,
+      "name": "frontend",
+      "description": "Frontend"
+    },
+    {
+      "id": 2,
+      "name": "backend",
+      "description": "Backend"
+    },
+    {
+      "id": 3,
+      "name": "devops",
+      "description": "DevOps"
+    },
+    {
+      "id": 4,
+      "name": "spring",
+      "description": "Spring"
+    },
+    {
+      "id": 5,
+      "name": "cdb",
+      "description": "Computer Database"
+    }
+  ],
+  "skills": [
+  ],
+  "tasks": [
+  ]
+}

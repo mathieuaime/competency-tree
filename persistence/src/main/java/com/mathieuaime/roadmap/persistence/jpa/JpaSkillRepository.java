@@ -28,7 +28,7 @@ public class JpaSkillRepository implements SkillRepository {
   @Override
   public Skill save(Skill skill) {
     SkillEntity entity = SkillMapper.toEntity(skill);
-    em.persist(entity);
+    entity = em.merge(entity);
     return SkillMapper.toModel(entity);
   }
 }

@@ -10,23 +10,23 @@ import javax.transaction.Transactional;
 @Transactional
 public class TaskServiceImpl implements TaskService {
 
-  private final TaskRepository repository;
+  private final TaskRepository taskRepository;
   private final CheckRepository checkRepository;
   private final RoadmapItemRepository roadmapItemRepository;
 
   public TaskServiceImpl(
-      TaskRepository repository,
+      TaskRepository taskRepository,
       CheckRepository checkRepository,
       RoadmapItemRepository roadmapItemRepository
   ) {
-    this.repository = repository;
+    this.taskRepository = taskRepository;
     this.checkRepository = checkRepository;
     this.roadmapItemRepository = roadmapItemRepository;
   }
 
   @Override
   public List<Task> findAll() {
-    return repository.findAll();
+    return taskRepository.findAll();
   }
 
   @Override
@@ -38,13 +38,9 @@ public class TaskServiceImpl implements TaskService {
 
   @Override
   public Task save(long roadmapId, long skillId, Task task) {
-    boolean creation = task.getId() == null;
+    task = taskRepository.merge(task);
 
-    task = repository.merge(task);
-
-    if (creation) {
-      roadmapItemRepository.create(roadmapId, skillId, task);
-    }
+    roadmapItemRepository.merge(roadmapId, skillId, task);
 
     return task;
   }

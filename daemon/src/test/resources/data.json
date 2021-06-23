@@ -1,0 +1,57 @@
+{
+  "roadmaps": [
+    {
+      "id": 1,
+      "name": "frontend",
+      "description": "frontend description"
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "INTERNET",
+      "icon": "flip_to_front"
+    },
+    {
+      "id": 2,
+      "name": "BASIC SKILLS",
+      "icon": "flip_to_front"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "roadmapId": 1,
+      "skillId": 1,
+      "name": "Basics of HTTP",
+      "description": "Learn the basics of HTTP",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 2,
+      "roadmapId": 1,
+      "skillId": 1,
+      "name": "DNS",
+      "description": "Learn how a DNS works",
+      "required": false,
+      "category": "BASIC"
+    },
+    {
+      "id": 3,
+      "roadmapId": 1,
+      "skillId": 2,
+      "name": "Learn HTML",
+      "description": "Learn the basics of HTML",
+      "required": true,
+      "category": "BEGINNER"
+    }
+  ],
+  "checks": [
+    {
+      "userId": 1,
+      "roadmapItemId": 1,
+      "done": true
+    }
+  ]
+}

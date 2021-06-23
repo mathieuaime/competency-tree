@@ -27,7 +27,7 @@ public class JpaRoadmapRepository implements RoadmapRepository {
   @Override
   public Roadmap save(Roadmap roadmap) {
     RoadmapEntity entity = RoadmapMapper.toEntity(roadmap);
-    em.persist(entity);
+    entity = em.merge(entity);
     return RoadmapMapper.toModel(entity);
   }
 }

@@ -4,16 +4,21 @@ import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.mathieuaime.roadmap.model.Category;
+import com.mathieuaime.roadmap.service.RoadmapService;
 import com.mathieuaime.roadmap.web.dto.RoadmapDto;
 import com.mathieuaime.roadmap.web.dto.SkillDto;
 import com.mathieuaime.roadmap.web.dto.TaskDto;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 
 class RoadmapIT extends BaseIT {
+
+  @Autowired
+  private RoadmapService roadmapService;
 
   @Test
   public void findRoadmaps() {
@@ -31,6 +36,8 @@ class RoadmapIT extends BaseIT {
 
   @Test
   public void findRoadmapByName() {
+    roadmapService.findByName("frontend").ifPresent(roadmap -> System.out.println("roadmap = " + roadmap));
+
     var response = this.restTemplate
         .exchange(getBaseUrl() + "/roadmaps/frontend", HttpMethod.GET, null, RoadmapDto.class);
 

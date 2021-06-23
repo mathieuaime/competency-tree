@@ -18,15 +18,15 @@ public class ArchUnitIT {
 
     LayeredArchitecture arch = layeredArchitecture()
         // Define layers
-        .layer("Config").definedBy("..config..")
+        .layer("Daemon").definedBy("..config..", "..initializer..")
         .layer("Persistence").definedBy("..persistence..")
         .layer("Web").definedBy("..web..")
         .layer("Domain").definedBy("..service..", "..model..", "..repository..")
         // Add constraints
-        .whereLayer("Config").mayNotBeAccessedByAnyLayer()
+        .whereLayer("Daemon").mayNotBeAccessedByAnyLayer()
         .whereLayer("Persistence").mayNotBeAccessedByAnyLayer()
         .whereLayer("Web").mayNotBeAccessedByAnyLayer()
-        .whereLayer("Domain").mayOnlyBeAccessedByLayers("Web", "Persistence", "Config");
+        .whereLayer("Domain").mayOnlyBeAccessedByLayers("Web", "Persistence", "Daemon");
 
     arch.check(jc);
   }

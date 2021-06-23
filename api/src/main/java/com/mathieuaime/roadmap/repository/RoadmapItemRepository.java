@@ -8,5 +8,5 @@ public interface RoadmapItemRepository {
 
   List<RoadmapItemProjection> findByTask(long taskId);
 
-  void create(long roadmapId, long skillId, Task task);
+  void merge(long roadmapId, long skillId, Task task);
 }

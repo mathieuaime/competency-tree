@@ -63,7 +63,7 @@ class JpaRoadmapItemRepositoryTest {
   void create() {
     Task task = TestFixture.randomTaskFromId(this.task.getId());
 
-    roadmapItemRepository.create(this.roadmap.getId(), this.skill.getId(), task);
+    roadmapItemRepository.merge(this.roadmap.getId(), this.skill.getId(), task);
 
     var roadmapItem = em.find(RoadmapItemEntity.class, 1L);
 

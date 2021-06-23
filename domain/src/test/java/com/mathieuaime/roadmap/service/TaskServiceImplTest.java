@@ -84,11 +84,11 @@ class TaskServiceImplTest {
     var savedTask = taskService.save(roadmapId, skillId, task);
 
     Assertions.assertThat(savedTask).isEqualTo(expectedTask);
-    verify(roadmapItemRepository).create(roadmapId, skillId, expectedTask);
+    verify(roadmapItemRepository).merge(roadmapId, skillId, expectedTask);
   }
 
   @Test
-  void save_whenTheTaskExists_shouldMergeTask() {
+  void save_whenTheTaskExists_shouldMergeTaskAndRoadmapItem() {
     long roadmapId = 1;
     long skillId = 2;
     Task task = randomTaskFromId(3L);
@@ -98,6 +98,6 @@ class TaskServiceImplTest {
     var savedTask = taskService.save(roadmapId, skillId, task);
 
     Assertions.assertThat(savedTask).isEqualTo(task);
-    verifyNoMoreInteractions(roadmapItemRepository);
+    verify(roadmapItemRepository).merge(roadmapId, skillId, task);
   }
 }
