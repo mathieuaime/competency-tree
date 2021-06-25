@@ -3,7 +3,7 @@ const baseUrl = process.env.API_URL || ''
 export default {
 
   async save (roadmapId, skillId, task) {
-    fetch(`${baseUrl}/roadmaps/${roadmapId}/skills/${skillId}/tasks`, {
+    fetch(`${baseUrl}/api/v1/roadmaps/${roadmapId}/skills/${skillId}/tasks`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -12,7 +12,7 @@ export default {
     })
   },
   async check (taskId) {
-    fetch(`${baseUrl}/me/tasks/${taskId}/check`, {
+    fetch(`${baseUrl}/api/v1/me/tasks/${taskId}/check`, {
       method: 'PUT'
     })
   }

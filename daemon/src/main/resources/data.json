@@ -27,7 +27,1765 @@
     }
   ],
   "skills": [
+    {
+      "id": 1,
+      "name": "INTERNET",
+      "icon": "flip_to_front"
+    },
+    {
+      "id": 2,
+      "name": "BASIC SKILLS",
+      "icon": "flip_to_front"
+    },
+    {
+      "id": 3,
+      "name": "BASIC TOOLS",
+      "icon": "flip_to_front"
+    },
+    {
+      "id": 4,
+      "name": "CSS FRAMEWORK",
+      "icon": "developer_mode"
+    },
+    {
+      "id": 5,
+      "name": "CSS PREPROCESSORS",
+      "icon": "view_quilt"
+    },
+    {
+      "id": 6,
+      "name": "CSS ARCHITECTURE",
+      "icon": "developer_boar"
+    },
+    {
+      "id": 7,
+      "name": "CSS SKILLS",
+      "icon": "devices"
+    },
+    {
+      "id": 8,
+      "name": "CSS MASTERY",
+      "icon": "widgets"
+    },
+    {
+      "id": 9,
+      "name": "BASIC DOM",
+      "icon": "hdr_strong"
+    },
+    {
+      "id": 10,
+      "name": "WEB DRAWING",
+      "icon": "gradient"
+    },
+    {
+      "id": 11,
+      "name": "JAVASCRIPT SKILLS",
+      "icon": "format_quote"
+    },
+    {
+      "id": 12,
+      "name": "JAVASCRIPT FRAMEWORK",
+      "icon": "developer_mode"
+    },
+    {
+      "id": 13,
+      "name": "JAVASCRIPT PREPROCESSORS",
+      "icon": "nfc"
+    },
+    {
+      "id": 14,
+      "name": "TASK RUNNERS",
+      "icon": "import_contacts"
+    },
+    {
+      "id": 15,
+      "name": "BUILD TOOLS",
+      "icon": "table_chart"
+    },
+    {
+      "id": 16,
+      "name": "PACKAGE MANAGERS",
+      "icon": "device_hub"
+    },
+    {
+      "id": 17,
+      "name": "OPERATING SYSTEM",
+      "icon": "flip_to_front"
+    },
+    {
+      "id": 18,
+      "name": "HOSTING SERVICES",
+      "icon": "devices"
+    },
+    {
+      "id": 19,
+      "name": "DATABASE MASTERY",
+      "icon": "devices"
+    },
+    {
+      "id": 20,
+      "name": "RELATIONAL DATABASES",
+      "icon": "devices"
+    },
+    {
+      "id": 21,
+      "name": "NOSQL DATABASES",
+      "icon": "devices"
+    },
+    {
+      "id": 22,
+      "name": "CLOUD",
+      "icon": "devices"
+    },
+    {
+      "id": 23,
+      "name": "TEST I",
+      "icon": "devices"
+    },
+    {
+      "id": 24,
+      "name": "DESIGN PRINCIPLES",
+      "icon": "devices"
+    },
+    {
+      "id": 25,
+      "name": "ARCHITECTURAL PATTERNS",
+      "icon": "devices"
+    },
+    {
+      "id": 26,
+      "name": "SEARCH ENGINES",
+      "icon": "devices"
+    },
+    {
+      "id": 27,
+      "name": "MESSAGE BROKERS",
+      "icon": "devices"
+    },
+    {
+      "id": 28,
+      "name": "SCALING",
+      "icon": "devices"
+    },
+    {
+      "id": 29,
+      "name": "SECURITY",
+      "icon": "devices"
+    },
+    {
+      "id": 30,
+      "name": "SECURITY I",
+      "icon": "devices"
+    },
+    {
+      "id": 31,
+      "name": "SECURITY II",
+      "icon": "devices"
+    },
+    {
+      "id": 32,
+      "name": "SERVER SIDE RENDERING",
+      "icon": "devices"
+    },
+    {
+      "id": 33,
+      "name": "STATIC SITE GENERATOR",
+      "icon": "devices"
+    },
+    {
+      "id": 34,
+      "name": "CACHING",
+      "icon": "devices"
+    },
+    {
+      "id": 35,
+      "name": "JAVA FRAMEWORK",
+      "icon": "developer_mode"
+    },
+    {
+      "id": 36,
+      "name": "LOGGING",
+      "icon": "devices"
+    },
+    {
+      "id": 37,
+      "name": "CONTINUOUS INTEGRATION",
+      "icon": "devices"
+    },
+    {
+      "id": 38,
+      "name": "CONTINUOUS DEPLOYMENT",
+      "icon": "devices"
+    },
+    {
+      "id": 39,
+      "name": "SCRIPTING",
+      "icon": "devices"
+    },
+    {
+      "id": 40,
+      "name": "TEST II",
+      "icon": "devices"
+    },
+    {
+      "id": 41,
+      "name": "CI / CD",
+      "icon": "devices"
+    },
+    {
+      "id": 42,
+      "name": "WEB SKILLS",
+      "icon": "devices"
+    },
+    {
+      "id": 43,
+      "name": "DATABASE SKILLS",
+      "icon": "devices"
+    },
+    {
+      "id": 44,
+      "name": "CERTIFICATIONS",
+      "icon": "devices"
+    },
+    {
+      "id": 45,
+      "name": "CERTIFICATIONS I",
+      "icon": "devices"
+    },
+    {
+      "id": 46,
+      "name": "CERTIFICATIONS II",
+      "icon": "devices"
+    },
+    {
+      "id": 47,
+      "name": "OTHER LANGAGES",
+      "icon": "devices"
+    },
+    {
+      "id": 48,
+      "name": "INSTALLATION",
+      "icon": "devices"
+    },
+    {
+      "id": 49,
+      "name": "SPRING",
+      "icon": "devices"
+    }
   ],
   "tasks": [
-  ]
+    {
+      "id": 1,
+      "roadmapId": 1,
+      "skillId": 1,
+      "name": "Basics of HTTP",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 1,
+      "roadmapId": 2,
+      "skillId": 1,
+      "name": "Basics of HTTP",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 2,
+      "roadmapId": 1,
+      "skillId": 1,
+      "name": "DNS",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 2,
+      "roadmapId": 2,
+      "skillId": 1,
+      "name": "DNS",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 3,
+      "roadmapId": 1,
+      "skillId": 2,
+      "name": "Learn HTML",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 3,
+      "roadmapId": 2,
+      "skillId": 2,
+      "name": "Learn HTML",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 4,
+      "roadmapId": 1,
+      "skillId": 2,
+      "name": "Basics of CSS",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 4,
+      "roadmapId": 2,
+      "skillId": 2,
+      "name": "Basics of CSS",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 5,
+      "roadmapId": 1,
+      "skillId": 2,
+      "name": "Basics of JavaScript",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 5,
+      "roadmapId": 2,
+      "skillId": 2,
+      "name": "Basics of JavaScript",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 6,
+      "roadmapId": 1,
+      "skillId": 3,
+      "name": "Git",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 6,
+      "roadmapId": 2,
+      "skillId": 3,
+      "name": "Git",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 6,
+      "roadmapId": 5,
+      "skillId": 3,
+      "name": "Git",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 7,
+      "roadmapId": 1,
+      "skillId": 3,
+      "name": "Text Editor",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 7,
+      "roadmapId": 2,
+      "skillId": 3,
+      "name": "Text Editor",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 8,
+      "roadmapId": 1,
+      "skillId": 3,
+      "name": "Basic Terminal Usage",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 8,
+      "roadmapId": 2,
+      "skillId": 3,
+      "name": "Basic Terminal Usage",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 8,
+      "roadmapId": 5,
+      "skillId": 3,
+      "name": "Basic Terminal Usage",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 9,
+      "roadmapId": 1,
+      "skillId": 4,
+      "name": "Bootstrap",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 10,
+      "roadmapId": 1,
+      "skillId": 4,
+      "name": "UIKit",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 11,
+      "roadmapId": 1,
+      "skillId": 4,
+      "name": "Foundation",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 12,
+      "roadmapId": 1,
+      "skillId": 4,
+      "name": "Semantic UI",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 13,
+      "roadmapId": 1,
+      "skillId": 5,
+      "name": "Sass",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 14,
+      "roadmapId": 1,
+      "skillId": 5,
+      "name": "PostCSS",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 15,
+      "roadmapId": 1,
+      "skillId": 5,
+      "name": "Less",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 16,
+      "roadmapId": 1,
+      "skillId": 5,
+      "name": "Stylus",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 17,
+      "roadmapId": 1,
+      "skillId": 6,
+      "name": "OOCSS",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 18,
+      "roadmapId": 1,
+      "skillId": 6,
+      "name": "SMACSS",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 19,
+      "roadmapId": 1,
+      "skillId": 6,
+      "name": "BEM",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 20,
+      "roadmapId": 1,
+      "skillId": 7,
+      "name": "Responsive",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 21,
+      "roadmapId": 1,
+      "skillId": 7,
+      "name": "Flexbox",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 22,
+      "roadmapId": 1,
+      "skillId": 8,
+      "name": "Grid Layout",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 23,
+      "roadmapId": 1,
+      "skillId": 8,
+      "name": "Animation",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 24,
+      "roadmapId": 1,
+      "skillId": 8,
+      "name": "Transform 2D, 3D",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 25,
+      "roadmapId": 1,
+      "skillId": 9,
+      "name": "jQuery",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 26,
+      "roadmapId": 1,
+      "skillId": 10,
+      "name": "SVG",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 27,
+      "roadmapId": 1,
+      "skillId": 10,
+      "name": "Canvas",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 28,
+      "roadmapId": 1,
+      "skillId": 10,
+      "name": "D3.js",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 29,
+      "roadmapId": 1,
+      "skillId": 11,
+      "name": "ES6",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 30,
+      "roadmapId": 1,
+      "skillId": 12,
+      "name": "Vue.js",
+      "description": "Vue.js is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members coming from various companies such as Netlify and Netguru",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 30,
+      "roadmapId": 5,
+      "skillId": 12,
+      "name": "Vue.js",
+      "description": "Vue.js is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members coming from various companies such as Netlify and Netguru",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 31,
+      "roadmapId": 1,
+      "skillId": 12,
+      "name": "Angular",
+      "description": "Angular is a TypeScript-based open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 31,
+      "roadmapId": 5,
+      "skillId": 12,
+      "name": "Angular",
+      "description": "Angular is a TypeScript-based open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 32,
+      "roadmapId": 1,
+      "skillId": 12,
+      "name": "React.js",
+      "description": "React.js is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with rendering data to the DOM, and so creating React applications usually requires the use of additional libraries for state management and routing",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 32,
+      "roadmapId": 5,
+      "skillId": 12,
+      "name": "React.js",
+      "description": "React.js is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with rendering data to the DOM, and so creating React applications usually requires the use of additional libraries for state management and routing",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 33,
+      "roadmapId": 1,
+      "skillId": 13,
+      "name": "TypeScript",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 34,
+      "roadmapId": 1,
+      "skillId": 13,
+      "name": "Babel",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 35,
+      "roadmapId": 1,
+      "skillId": 13,
+      "name": "CoffeeScript",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 36,
+      "roadmapId": 1,
+      "skillId": 16,
+      "name": "NPM",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 37,
+      "roadmapId": 1,
+      "skillId": 16,
+      "name": "YARN",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 38,
+      "roadmapId": 1,
+      "skillId": 16,
+      "name": "Bower",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 39,
+      "roadmapId": 1,
+      "skillId": 14,
+      "name": "npm scripts",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 40,
+      "roadmapId": 1,
+      "skillId": 14,
+      "name": "gulp",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 41,
+      "roadmapId": 1,
+      "skillId": 14,
+      "name": "grunt",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 42,
+      "roadmapId": 1,
+      "skillId": 15,
+      "name": "Webpack",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 43,
+      "roadmapId": 1,
+      "skillId": 15,
+      "name": "Parcel",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 44,
+      "roadmapId": 2,
+      "skillId": 2,
+      "name": "Learn Java",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 44,
+      "roadmapId": 4,
+      "skillId": 2,
+      "name": "Learn Java",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 44,
+      "roadmapId": 5,
+      "skillId": 2,
+      "name": "Learn Java",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 45,
+      "roadmapId": 2,
+      "skillId": 35,
+      "name": "Java EE",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 45,
+      "roadmapId": 4,
+      "skillId": 35,
+      "name": "Java EE",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 46,
+      "roadmapId": 2,
+      "skillId": 35,
+      "name": "Spring",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 46,
+      "roadmapId": 5,
+      "skillId": 35,
+      "name": "Spring",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 47,
+      "roadmapId": 2,
+      "skillId": 35,
+      "name": "Quarkus",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 48,
+      "roadmapId": 2,
+      "skillId": 35,
+      "name": "Micronaut",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 49,
+      "roadmapId": 2,
+      "skillId": 20,
+      "name": "MySQL",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 49,
+      "roadmapId": 5,
+      "skillId": 3,
+      "name": "MySQL",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 50,
+      "roadmapId": 2,
+      "skillId": 20,
+      "name": "MariaDB",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 51,
+      "roadmapId": 2,
+      "skillId": 20,
+      "name": "PostgreSQL",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 52,
+      "roadmapId": 2,
+      "skillId": 20,
+      "name": "Oracle",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 53,
+      "roadmapId": 2,
+      "skillId": 20,
+      "name": "MS SQL",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 54,
+      "roadmapId": 2,
+      "skillId": 43,
+      "name": "JPA",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 55,
+      "roadmapId": 2,
+      "skillId": 43,
+      "name": "ORM",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 56,
+      "roadmapId": 2,
+      "skillId": 43,
+      "name": "Transactions",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 56,
+      "roadmapId": 5,
+      "skillId": 43,
+      "name": "Transactions",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 57,
+      "roadmapId": 2,
+      "skillId": 21,
+      "name": "MongoDB",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 58,
+      "roadmapId": 2,
+      "skillId": 21,
+      "name": "DynamoDB",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 59,
+      "roadmapId": 2,
+      "skillId": 21,
+      "name": "CouchDB",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 60,
+      "roadmapId": 2,
+      "skillId": 21,
+      "name": "Neo4j",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 61,
+      "roadmapId": 2,
+      "skillId": 42,
+      "name": "REST",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 61,
+      "roadmapId": 5,
+      "skillId": 42,
+      "name": "REST",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 62,
+      "roadmapId": 2,
+      "skillId": 42,
+      "name": "SOAP",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 63,
+      "roadmapId": 2,
+      "skillId": 45,
+      "name": "OCA",
+      "description": "",
+      "required": true,
+      "category": "BASIC"
+    },
+    {
+      "id": 63,
+      "roadmapId": 5,
+      "skillId": 44,
+      "name": "OCA",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 64,
+      "roadmapId": 2,
+      "skillId": 46,
+      "name": "OCP",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 64,
+      "roadmapId": 5,
+      "skillId": 44,
+      "name": "OCP",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 65,
+      "roadmapId": 2,
+      "skillId": 43,
+      "name": "ACID",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 66,
+      "roadmapId": 5,
+      "skillId": 41,
+      "name": "Jenkins",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 67,
+      "roadmapId": 2,
+      "skillId": 39,
+      "name": "Python",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 68,
+      "roadmapId": 2,
+      "skillId": 39,
+      "name": "Bash",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 69,
+      "roadmapId": 2,
+      "skillId": 24,
+      "name": "Design Patterns",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 70,
+      "roadmapId": 2,
+      "skillId": 24,
+      "name": "Domain Driven Design",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 71,
+      "roadmapId": 2,
+      "skillId": 23,
+      "name": "Test Driven Development",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 72,
+      "roadmapId": 2,
+      "skillId": 24,
+      "name": "SOLID",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 73,
+      "roadmapId": 2,
+      "skillId": 40,
+      "name": "Behavior Driven Development",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 74,
+      "roadmapId": 5,
+      "skillId": 41,
+      "name": "AWS",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 75,
+      "roadmapId": 2,
+      "skillId": 26,
+      "name": "Elasticsearch",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 76,
+      "roadmapId": 2,
+      "skillId": 27,
+      "name": "ActiveMQ",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 77,
+      "roadmapId": 2,
+      "skillId": 27,
+      "name": "RabbitMQ",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 78,
+      "roadmapId": 2,
+      "skillId": 27,
+      "name": "Kafka",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 79,
+      "roadmapId": 2,
+      "skillId": 37,
+      "name": "Docker",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 79,
+      "roadmapId": 5,
+      "skillId": 41,
+      "name": "Docker",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 80,
+      "roadmapId": 2,
+      "skillId": 38,
+      "name": "Docker Compose",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 81,
+      "roadmapId": 2,
+      "skillId": 42,
+      "name": "JAX-RS",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 81,
+      "roadmapId": 5,
+      "skillId": 42,
+      "name": "JAX-RS",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 82,
+      "roadmapId": 4,
+      "skillId": 42,
+      "name": "Spring MVC",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 82,
+      "roadmapId": 5,
+      "skillId": 42,
+      "name": "Spring MVC",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 83,
+      "roadmapId": 4,
+      "skillId": 43,
+      "name": "Spring Data JPA",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 83,
+      "roadmapId": 5,
+      "skillId": 19,
+      "name": "Spring Data JPA",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 84,
+      "roadmapId": 4,
+      "skillId": 30,
+      "name": "Spring Security",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 84,
+      "roadmapId": 5,
+      "skillId": 29,
+      "name": "Spring Security",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 85,
+      "roadmapId": 1,
+      "skillId": 23,
+      "name": "Jest",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 86,
+      "roadmapId": 1,
+      "skillId": 23,
+      "name": "Mocha",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 87,
+      "roadmapId": 1,
+      "skillId": 23,
+      "name": "Jasmine",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 88,
+      "roadmapId": 1,
+      "skillId": 40,
+      "name": "Cypress",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 89,
+      "roadmapId": 1,
+      "skillId": 40,
+      "name": "Enzyme",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 90,
+      "roadmapId": 2,
+      "skillId": 40,
+      "name": "Cucumber",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 91,
+      "roadmapId": 2,
+      "skillId": 25,
+      "name": "Monolithic Apps",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 92,
+      "roadmapId": 2,
+      "skillId": 25,
+      "name": "Microservices",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 92,
+      "roadmapId": 5,
+      "skillId": 25,
+      "name": "Microservices",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 93,
+      "roadmapId": 2,
+      "skillId": 25,
+      "name": "SOA",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 94,
+      "roadmapId": 2,
+      "skillId": 25,
+      "name": "Serverless",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 94,
+      "roadmapId": 5,
+      "skillId": 25,
+      "name": "Serverless",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 95,
+      "roadmapId": 2,
+      "skillId": 30,
+      "name": "OWASP",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 96,
+      "roadmapId": 2,
+      "skillId": 30,
+      "name": "CORS",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 97,
+      "roadmapId": 2,
+      "skillId": 31,
+      "name": "OAuth 2.0",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 98,
+      "roadmapId": 2,
+      "skillId": 23,
+      "name": "Mockito",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 98,
+      "roadmapId": 5,
+      "skillId": 23,
+      "name": "Mockito",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 99,
+      "roadmapId": 1,
+      "skillId": 40,
+      "name": "Integration Testing",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 99,
+      "roadmapId": 2,
+      "skillId": 40,
+      "name": "Integration Testing",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 99,
+      "roadmapId": 5,
+      "skillId": 40,
+      "name": "Integration Testing",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 100,
+      "roadmapId": 2,
+      "skillId": 47,
+      "name": "Kotlin",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 100,
+      "roadmapId": 5,
+      "skillId": 47,
+      "name": "Kotlin",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 101,
+      "roadmapId": 2,
+      "skillId": 47,
+      "name": "Scala",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 101,
+      "roadmapId": 5,
+      "skillId": 47,
+      "name": "Scala",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 102,
+      "roadmapId": 2,
+      "skillId": 47,
+      "name": "Groovy",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 103,
+      "roadmapId": 2,
+      "skillId": 23,
+      "name": "JUnit",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 103,
+      "roadmapId": 5,
+      "skillId": 23,
+      "name": "JUnit",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 104,
+      "roadmapId": 2,
+      "skillId": 27,
+      "name": "ZeroMQ",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 105,
+      "roadmapId": 2,
+      "skillId": 16,
+      "name": "Maven",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 105,
+      "roadmapId": 5,
+      "skillId": 16,
+      "name": "Maven",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 106,
+      "roadmapId": 2,
+      "skillId": 16,
+      "name": "Gradle",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 106,
+      "roadmapId": 5,
+      "skillId": 16,
+      "name": "Gradle",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 107,
+      "roadmapId": 2,
+      "skillId": 19,
+      "name": "Liquibase",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 108,
+      "roadmapId": 2,
+      "skillId": 19,
+      "name": "Flyway",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 109,
+      "roadmapId": 2,
+      "skillId": 19,
+      "name": "N+1 Problem",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 110,
+      "roadmapId": 2,
+      "skillId": 30,
+      "name": "JWT",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 110,
+      "roadmapId": 5,
+      "skillId": 29,
+      "name": "JWT",
+      "description": "",
+      "required": false,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 111,
+      "roadmapId": 5,
+      "skillId": 24,
+      "name": "Software Architecture",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 112,
+      "roadmapId": 5,
+      "skillId": 24,
+      "name": "Singleton",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 113,
+      "roadmapId": 5,
+      "skillId": 24,
+      "name": "Inversion Of Control",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 114,
+      "roadmapId": 5,
+      "skillId": 36,
+      "name": "Slf4j",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 115,
+      "roadmapId": 5,
+      "skillId": 36,
+      "name": "Logback",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 116,
+      "roadmapId": 5,
+      "skillId": 42,
+      "name": "Data Transfer Object",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 117,
+      "roadmapId": 5,
+      "skillId": 42,
+      "name": "Servlet",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 118,
+      "roadmapId": 5,
+      "skillId": 42,
+      "name": "JSP",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 119,
+      "roadmapId": 5,
+      "skillId": 42,
+      "name": "JSTL",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 120,
+      "roadmapId": 5,
+      "skillId": 42,
+      "name": "Pagination",
+      "description": "",
+      "required": true,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 121,
+      "roadmapId": 5,
+      "skillId": 43,
+      "name": "HikariCP",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 122,
+      "roadmapId": 5,
+      "skillId": 43,
+      "name": "JDBCTemplate",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 123,
+      "roadmapId": 5,
+      "skillId": 24,
+      "name": "i18n",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 124,
+      "roadmapId": 5,
+      "skillId": 43,
+      "name": "Hibernate",
+      "description": "",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "id": 125,
+      "roadmapId": 5,
+      "skillId": 19,
+      "name": "HQL",
+      "description": "",
+      "required": true,
+      "category": "EXPERT"
+    },
+    {
+      "id": 126,
+      "roadmapId": 5,
+      "skillId": 19,
+      "name": "QueryDSL",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 127,
+      "roadmapId": 5,
+      "skillId": 19,
+      "name": "Criteria",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 128,
+      "roadmapId": 5,
+      "skillId": 16,
+      "name": "Maven Modules",
+      "description": "",
+      "required": false,
+      "category": "BEGINNER"
+    },
+    {
+      "id": 129,
+      "roadmapId": 5,
+      "skillId": 40,
+      "name": "Gatling",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    },
+    {
+      "id": 130,
+      "roadmapId": 5,
+      "skillId": 19,
+      "name": "Jooq",
+      "description": "",
+      "required": false,
+      "category": "EXPERT"
+    }
+  ],
+  "checks": []
 }
