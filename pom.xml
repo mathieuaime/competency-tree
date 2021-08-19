@@ -32,7 +32,7 @@
     <testcontainers.version>1.15.3</testcontainers.version>
     <selenium.version>3.141.59</selenium.version>
     <awaitility.version>4.1.0</awaitility.version>
-    <jmh.version>1.32</jmh.version>
+    <jmh.version>1.33</jmh.version>
 
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
   </properties>
