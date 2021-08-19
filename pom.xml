@@ -29,7 +29,7 @@
   <properties>
     <java.version>16</java.version>
     <archunit-junit5.version>0.18.0</archunit-junit5.version>
-    <testcontainers.version>1.15.3</testcontainers.version>
+    <testcontainers.version>1.16.0</testcontainers.version>
     <selenium.version>3.141.59</selenium.version>
     <awaitility.version>4.1.0</awaitility.version>
     <jmh.version>1.33</jmh.version>
