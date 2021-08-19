@@ -19,18 +19,21 @@ public class RoadmapEntity {
   private String name;
   @Column(columnDefinition = "TEXT")
   private String description;
+  @Column(nullable = false)
+  private String color;
 
   public RoadmapEntity() {
   }
 
   public RoadmapEntity(Long id) {
-    this(id, null, null);
+    this(id, null, null, null);
   }
 
-  public RoadmapEntity(Long id, String name, String description) {
+  public RoadmapEntity(Long id, String name, String description, String color) {
     this.id = id;
     this.name = name;
     this.description = description;
+    this.color = color;
   }
 
   public Long getId() {
@@ -45,6 +48,10 @@ public class RoadmapEntity {
     return description;
   }
 
+  public String getColor() {
+    return color;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -56,12 +63,13 @@ public class RoadmapEntity {
     RoadmapEntity that = (RoadmapEntity) o;
     return Objects.equals(id, that.id) &&
         Objects.equals(name, that.name) &&
-        Objects.equals(description, that.description);
+        Objects.equals(description, that.description) &&
+        Objects.equals(color, that.color);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description);
+    return Objects.hash(id, name, description, color);
   }
 
   @Override
@@ -70,6 +78,7 @@ public class RoadmapEntity {
         "id=" + id +
         ", name='" + name + '\'' +
         ", description='" + description + '\'' +
+        ", color='" + color + '\'' +
         '}';
   }
 }

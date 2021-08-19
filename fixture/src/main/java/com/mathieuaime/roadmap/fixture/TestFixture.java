@@ -1,15 +1,14 @@
-package com.mathieuaime.roadmap;
+package com.mathieuaime.roadmap.fixture;
 
 import com.mathieuaime.roadmap.model.Category;
 import com.mathieuaime.roadmap.model.Roadmap;
 import com.mathieuaime.roadmap.model.Skill;
 import com.mathieuaime.roadmap.model.Task;
+import com.mathieuaime.roadmap.repository.projection.TaskProjection;
 import java.util.Random;
 import java.util.UUID;
 
 public class TestFixture {
-
-  private static final Category[] CATEGORIES = Category.values();
 
   public static Roadmap randomRoadmap() {
     return randomRoadmapFromId(null);
@@ -20,7 +19,7 @@ public class TestFixture {
   }
 
   public static Roadmap randomRoadmapFromId(Long id) {
-    return new Roadmap(id, randomString(), randomString());
+    return new Roadmap(id, randomString(), randomString(), randomString(7));
   }
 
   public static Skill randomSkill() {
@@ -29,6 +28,10 @@ public class TestFixture {
 
   public static Skill randomSkillWithId() {
     return randomSkillFromId(randomLong());
+  }
+
+  public static Skill randomSkillFromCategory(Category category) {
+    return new Skill(randomLong(), randomString(), randomString(), category);
   }
 
   private static Skill randomSkillFromId(Long id) {
@@ -55,8 +58,28 @@ public class TestFixture {
     return new Task(id, name, randomString(), randomBoolean(), randomBoolean(), randomCategory());
   }
 
-  private static String randomString() {
+  public static Task randomTaskFromCategory(Category category) {
+    return new Task(randomLong(), randomString(), randomString(), randomBoolean(), randomBoolean(),
+        category);
+  }
+
+  public static TaskProjection randomTaskProjection(Roadmap roadmap, Skill skill, Task task) {
+    return new TaskProjection(
+        roadmap.getId(), roadmap.getName(), roadmap.getDescription(), roadmap.getColor(),
+        skill.getId(), skill.getName(), skill.getIcon(), task.getId(), task.getName(),
+        task.getDescription(), task.getCategory(), task.isDone(), task.isRequired());
+  }
+
+  public static Category randomCategory() {
+    return Category.values()[new Random().nextInt(Category.values().length)];
+  }
+
+  public static String randomString() {
     return UUID.randomUUID().toString();
+  }
+
+  public static String randomString(int size) {
+    return randomString().substring(0, size);
   }
 
   private static boolean randomBoolean() {
@@ -65,9 +88,5 @@ public class TestFixture {
 
   private static long randomLong() {
     return new Random().nextLong();
-  }
-
-  private static Category randomCategory() {
-    return CATEGORIES[new Random().nextInt(CATEGORIES.length)];
   }
 }

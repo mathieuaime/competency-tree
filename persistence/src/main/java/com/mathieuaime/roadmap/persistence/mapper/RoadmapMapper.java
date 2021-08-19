@@ -10,10 +10,12 @@ public final class RoadmapMapper {
   }
 
   public static Roadmap toModel(RoadmapEntity entity) {
-    return new Roadmap(entity.getId(), entity.getName(), entity.getDescription());
+    return new Roadmap(entity.getId(), entity.getName(), entity.getDescription(),
+        entity.getColor());
   }
 
   public static RoadmapEntity toEntity(Roadmap roadmap) {
-    return new RoadmapEntity(roadmap.getId(), roadmap.getName(), roadmap.getDescription());
+    return new RoadmapEntity(roadmap.getId(), roadmap.getName(), roadmap.getDescription(),
+        roadmap.getColor());
   }
 }

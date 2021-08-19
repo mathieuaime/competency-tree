@@ -10,10 +10,8 @@ import java.util.UUID;
 
 public class PersistenceTestFixture {
 
-  private static final Category[] CATEGORIES = Category.values();
-
   public static RoadmapEntity randomRoadmapEntity() {
-    return new RoadmapEntity(null, randomString(), randomString());
+    return new RoadmapEntity(null, randomString(), randomString(), randomString(7));
   }
 
   public static SkillEntity randomSkillEntity() {
@@ -35,11 +33,15 @@ public class PersistenceTestFixture {
     return UUID.randomUUID().toString();
   }
 
+  private static String randomString(int size) {
+    return randomString().substring(0, size);
+  }
+
   private static boolean randomBoolean() {
     return new Random().nextBoolean();
   }
 
   private static Category randomCategory() {
-    return CATEGORIES[new Random().nextInt(CATEGORIES.length)];
+    return Category.values()[new Random().nextInt(Category.values().length)];
   }
 }

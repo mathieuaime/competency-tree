@@ -1,7 +1,7 @@
 package com.mathieuaime.roadmap.web.rest;
 
-import static com.mathieuaime.roadmap.TestFixture.randomSkill;
-import static com.mathieuaime.roadmap.TestFixture.randomSkillWithId;
+import static com.mathieuaime.roadmap.fixture.TestFixture.randomSkill;
+import static com.mathieuaime.roadmap.fixture.TestFixture.randomSkillWithId;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;

@@ -76,6 +76,10 @@ public class Skill implements Comparable<Skill> {
     return done;
   }
 
+  public Skill withId(long id) {
+    return new Skill(id, name, icon, category, done, tasks);
+  }
+
   @Override
   public int compareTo(Skill o) {
     int categoryCompare = category.compareTo(o.category);

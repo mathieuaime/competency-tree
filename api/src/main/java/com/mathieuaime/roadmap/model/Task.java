@@ -55,6 +55,10 @@ public class Task implements Comparable<Task> {
     return category;
   }
 
+  public Task withId(long id) {
+    return new Task(id, name, description, done, required, category);
+  }
+
   @Override
   public int compareTo(Task o) {
     return name.compareTo(o.name);

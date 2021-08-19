@@ -11,15 +11,14 @@ final class InitialDataMapper {
   }
 
   static Roadmap toModel(RoadmapData roadmap) {
-    return new Roadmap(roadmap.id(), roadmap.name(), roadmap.description());
+    return new Roadmap(null, roadmap.name(), roadmap.description(), roadmap.color());
   }
 
   static Skill toModel(SkillData skill) {
-    return new Skill(skill.id(), skill.name(), skill.icon());
+    return new Skill(null, skill.name(), skill.icon());
   }
 
   static Task toModel(TaskData task) {
-    return new Task(task.id(), task.name(), task.description(), false, task.required(),
-        task.category());
+    return new Task(null, task.name(), task.description(), false, task.required(), task.category());
   }
 }

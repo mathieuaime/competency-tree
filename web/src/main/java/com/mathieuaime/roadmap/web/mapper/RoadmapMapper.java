@@ -16,7 +16,7 @@ public final class RoadmapMapper {
 
   public static Roadmap toModel(RoadmapDto dto) {
     List<Skill> skills = dto.getSkills().stream().map(SkillMapper::toModel).collect(toList());
-    return new Roadmap(dto.getId(), dto.getName(), dto.getDescription(), skills);
+    return new Roadmap(dto.getId(), dto.getName(), dto.getDescription(), dto.getColor(), skills);
   }
 
   public static RoadmapDto toDto(Roadmap model) {
@@ -24,6 +24,7 @@ public final class RoadmapMapper {
         .sorted()
         .map(SkillMapper::toDto)
         .collect(toList());
-    return new RoadmapDto(model.getId(), model.getName(), model.getDescription(), skills);
+    return new RoadmapDto(model.getId(), model.getName(), model.getDescription(), model.getColor(),
+        skills);
   }
 }

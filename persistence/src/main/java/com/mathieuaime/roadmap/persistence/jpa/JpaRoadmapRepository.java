@@ -5,6 +5,7 @@ import com.mathieuaime.roadmap.persistence.entity.RoadmapEntity;
 import com.mathieuaime.roadmap.persistence.mapper.RoadmapMapper;
 import com.mathieuaime.roadmap.repository.RoadmapRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,6 +23,15 @@ public class JpaRoadmapRepository implements RoadmapRepository {
         .getResultStream()
         .map(RoadmapMapper::toModel)
         .collect(Collectors.toList());
+  }
+
+  @Override
+  public Optional<Roadmap> findByName(String name) {
+    return em.createQuery("from Roadmap where name = ?1", RoadmapEntity.class)
+        .setParameter(1, name)
+        .getResultStream()
+        .map(RoadmapMapper::toModel)
+        .findFirst();
   }
 
   @Override

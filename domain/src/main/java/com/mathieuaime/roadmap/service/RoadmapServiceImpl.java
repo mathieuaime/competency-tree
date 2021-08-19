@@ -26,9 +26,8 @@ public class RoadmapServiceImpl implements RoadmapService {
   }
 
   @Override
-  public Optional<Roadmap> findByName(String roadmapName) {
-    Set<TaskProjection> allTasks = taskRepository.findByRoadmap(roadmapName);
-    return new RoadmapExtractor(allTasks).getRoadmap();
+  public Optional<Roadmap> findByName(String name) {
+    return repository.findByName(name);
   }
 
   @Override

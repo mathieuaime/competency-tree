@@ -6,7 +6,7 @@ import static com.mathieuaime.roadmap.persistence.PersistenceTestFixture.randomS
 import static com.mathieuaime.roadmap.persistence.PersistenceTestFixture.randomTaskEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.mathieuaime.roadmap.TestFixture;
+import com.mathieuaime.roadmap.fixture.TestFixture;
 import com.mathieuaime.roadmap.persistence.entity.CheckEntity;
 import com.mathieuaime.roadmap.persistence.entity.TaskEntity;
 import org.assertj.core.api.Assertions;

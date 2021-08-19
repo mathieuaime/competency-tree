@@ -1,57 +1,75 @@
 {
   "roadmaps": [
     {
-      "id": 1,
       "name": "frontend",
-      "description": "frontend description"
+      "description": "frontend description",
+      "color": "#000000"
     }
   ],
   "skills": [
     {
-      "id": 1,
-      "name": "INTERNET",
-      "icon": "flip_to_front"
+      "name": "BASIC SKILLS",
+      "icon": "icon"
     },
     {
-      "id": 2,
-      "name": "BASIC SKILLS",
-      "icon": "flip_to_front"
+      "name": "BEGINNER SKILLS",
+      "icon": "icon"
+    },
+    {
+      "name": "CONFIRMED SKILLS",
+      "icon": "icon"
+    },
+    {
+      "name": "EXPERT SKILLS",
+      "icon": "icon"
     }
   ],
   "tasks": [
     {
-      "id": 1,
-      "roadmapId": 1,
-      "skillId": 1,
-      "name": "Basics of HTTP",
-      "description": "Learn the basics of HTTP",
+      "roadmap": "frontend",
+      "skill": "BASIC SKILLS",
+      "name": "Basic task 1",
+      "description": "Learn the task 1",
       "required": true,
       "category": "BASIC"
     },
     {
-      "id": 2,
-      "roadmapId": 1,
-      "skillId": 1,
-      "name": "DNS",
-      "description": "Learn how a DNS works",
+      "roadmap": "frontend",
+      "skill": "BASIC SKILLS",
+      "name": "Basic task 2",
+      "description": "Learn the task 2",
       "required": false,
       "category": "BASIC"
     },
     {
-      "id": 3,
-      "roadmapId": 1,
-      "skillId": 2,
-      "name": "Learn HTML",
-      "description": "Learn the basics of HTML",
+      "roadmap": "frontend",
+      "skill": "BEGINNER SKILLS",
+      "name": "Beginner task 3",
+      "description": "Learn the task 3",
       "required": true,
       "category": "BEGINNER"
+    },
+    {
+      "roadmap": "frontend",
+      "skill": "CONFIRMED SKILLS",
+      "name": "Confirmed task 4",
+      "description": "Learn the task 4",
+      "required": true,
+      "category": "CONFIRMED"
+    },
+    {
+      "roadmap": "frontend",
+      "skill": "EXPERT SKILLS",
+      "name": "Expert task 5",
+      "description": "Learn the task 5",
+      "required": true,
+      "category": "EXPERT"
     }
   ],
   "checks": [
     {
       "userId": 1,
-      "roadmapItemId": 1,
-      "done": true
+      "task": "Basic task 2"
     }
   ]
 }

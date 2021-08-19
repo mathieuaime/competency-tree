@@ -7,11 +7,11 @@ import Progression from '../Progression/Progression'
 import RoadmapService from '../../services/RoadmapService'
 
 const Categories = {
-  BASIC: { name: 'basic', rank: 'initiate developer' },
-  BEGINNER: { name: 'beginner', rank: 'padawan developer' },
-  CONFIRMED: { name: 'confirmed', rank: 'jedi developer' },
-  EXPERT: { name: 'expert', rank: 'jedi master developer' },
-  MASTER: { name: 'master', rank: 'master of the order' }
+  BASIC: { name: 'BASIC', rank: 'initiate developer' },
+  BEGINNER: { name: 'BEGINNER', rank: 'padawan developer' },
+  CONFIRMED: { name: 'CONFIRMED', rank: 'jedi developer' },
+  EXPERT: { name: 'EXPERT', rank: 'jedi master developer' },
+  MASTER: { name: 'MASTER', rank: 'master of the order' }
 }
 
 export default {
@@ -32,12 +32,12 @@ export default {
       clickList: [],
       checked: 0,
       myImg: [
-        require('@/assets/rank-basic.png'),
-        require('@/assets/rank-beginner.png'),
-        require('@/assets/rank-confirmed.png'),
-        require('@/assets/rank-expert.png'),
-        require('@/assets/rank-master.png'),
-        require('@/assets/rank-admin.png')
+        require('@/assets/rank-BASIC.png'),
+        require('@/assets/rank-BEGINNER.png'),
+        require('@/assets/rank-CONFIRMED.png'),
+        require('@/assets/rank-EXPERT.png'),
+        require('@/assets/rank-MASTER.png'),
+        require('@/assets/rank-ADMIN.png')
       ],
       currentSkill: { id: 0, tasks: [] },
       currentTask: undefined,
@@ -80,28 +80,14 @@ export default {
     rank () {
       return this.isAdmin ? 'admin' : this.currentCategory.rank
     },
-    basicSkills () {
-      return this.roadmap.skills.filter(
-        (i) => i.category.toLowerCase() === Categories.BASIC.name
-      )
-    },
-    beginnerSkills () {
-      return this.roadmap.skills.filter(
-        (i) => i.category.toLowerCase() === Categories.BEGINNER.name
-      )
-    },
-    confirmedSkills () {
-      return this.roadmap.skills.filter(
-        (i) => i.category.toLowerCase() === Categories.CONFIRMED.name
-      )
-    },
-    expertSkills () {
-      return this.roadmap.skills.filter(
-        (i) => i.category.toLowerCase() === Categories.EXPERT.name
-      )
+    skills () {
+      return this.roadmap.skills.reduce(function (skillsByCategory, x) {
+        (skillsByCategory[x.category] = skillsByCategory[x.category] || []).push(x)
+        return skillsByCategory
+      }, {})
     },
     currentCategorySkills () {
-      return this.getSkills(this.currentCategory.name)
+      return this.getSkills(this.currentCategory)
     },
     totalProgression () {
       let tasks = this.roadmap.skills.flatMap((skill) => skill.tasks)
@@ -111,42 +97,19 @@ export default {
           (tasks.filter((item) => item.done).length * 100) / tasks.length
         )
     },
-    itemLeft () {
-      if (this.currentCategory.name === 'master') {
+    tasksLeft () {
+      if (this.currentCategory.name === Categories.EXPERT.name) {
         return 0
       }
 
       let tasks =
-        this.currentCategory.name === 'expert'
+        this.currentCategory.name === Categories.EXPERT.name
           ? this.roadmap.skills.flatMap((skill) => skill.tasks)
           : this.currentCategorySkills
             .flatMap((skill) => skill.tasks)
             .filter((i) => i.required)
 
       return tasks.length - tasks.filter((item) => item.done).length
-    },
-    primaryColor () {
-      let color
-
-      switch (this.roadmap.name) {
-        case 'frontend':
-          color = '#35ba2a'
-          break
-        case 'backend':
-          color = '#fb0000'
-          break
-        case 'devops':
-          color = '#82def9'
-          break
-        case 'spring':
-          color = '#ffe81f'
-          break
-        case 'cdb':
-          color = '#808080'
-          break
-      }
-
-      return color
     }
   },
   methods: {
@@ -161,17 +124,10 @@ export default {
       this.loading = false
     },
     getSkills (category) {
-      switch (category) {
-        case Categories.BASIC.name:
-          return this.basicSkills
-        case Categories.BEGINNER.name:
-          return this.beginnerSkills
-        case Categories.CONFIRMED.name:
-          return this.confirmedSkills
-        case Categories.EXPERT.name:
-          return this.expertSkills
-        case Categories.MASTER.name:
-          return this.expertSkills
+      if (category.name === Categories.MASTER.name) {
+        return this.skills[Categories.EXPERT.name]
+      } else {
+        return this.skills[category.name]
       }
     },
     isCategory (category) {
@@ -182,7 +138,7 @@ export default {
     },
     isCategoryDone (category) {
       return (
-        !this.isAdmin && this.getSkills(category.name).every((i) => i.done)
+        !this.isAdmin && (this.skills[category.name] || []).every((i) => i.done)
       )
     },
     isSkillDone (skill) {
@@ -220,7 +176,7 @@ export default {
       )
     },
     getCategoryImgUrl (category) {
-      var images = require.context('../../assets', false, /\.png$/)
+      let images = require.context('../../assets', false, /\.png$/)
       return images('./ship-' + category + '.png')
     }
   }

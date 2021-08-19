@@ -1,6 +1,6 @@
 package com.mathieuaime.roadmap.service;
 
-import static com.mathieuaime.roadmap.TestFixture.randomSkill;
+import static com.mathieuaime.roadmap.fixture.TestFixture.randomSkill;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 

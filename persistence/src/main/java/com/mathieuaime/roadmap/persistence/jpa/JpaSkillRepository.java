@@ -7,6 +7,7 @@ import com.mathieuaime.roadmap.persistence.entity.SkillEntity;
 import com.mathieuaime.roadmap.persistence.mapper.SkillMapper;
 import com.mathieuaime.roadmap.repository.SkillRepository;
 import java.util.List;
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -23,6 +24,15 @@ public class JpaSkillRepository implements SkillRepository {
         .getResultStream()
         .map(SkillMapper::toModel)
         .collect(toList());
+  }
+
+  @Override
+  public Optional<Skill> findByName(String name) {
+    return em.createQuery("from Skill where name = ?1", SkillEntity.class)
+        .setParameter(1, name)
+        .getResultStream()
+        .map(SkillMapper::toModel)
+        .findFirst();
   }
 
   @Override

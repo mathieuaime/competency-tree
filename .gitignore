@@ -23,6 +23,7 @@ target/
 .vscode/
 
 daemon/src/main/resources/public/
+daemon/jmh-result.json
 
 dist/
 node/

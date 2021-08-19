@@ -1,7 +1,7 @@
 package com.mathieuaime.roadmap.service;
 
-import static com.mathieuaime.roadmap.TestFixture.randomTask;
-import static com.mathieuaime.roadmap.TestFixture.randomTaskFromId;
+import static com.mathieuaime.roadmap.fixture.TestFixture.randomTask;
+import static com.mathieuaime.roadmap.fixture.TestFixture.randomTaskFromId;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;

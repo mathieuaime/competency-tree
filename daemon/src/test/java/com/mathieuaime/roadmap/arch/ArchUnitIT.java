@@ -1,4 +1,4 @@
-package com.mathieuaime.roadmap;
+package com.mathieuaime.roadmap.arch;
 
 import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
@@ -21,12 +21,14 @@ public class ArchUnitIT {
         .layer("Daemon").definedBy("..config..", "..initializer..")
         .layer("Persistence").definedBy("..persistence..")
         .layer("Web").definedBy("..web..")
+        .layer("Fixture").definedBy("..fixture..")
         .layer("Domain").definedBy("..service..", "..model..", "..repository..")
         // Add constraints
         .whereLayer("Daemon").mayNotBeAccessedByAnyLayer()
         .whereLayer("Persistence").mayNotBeAccessedByAnyLayer()
         .whereLayer("Web").mayNotBeAccessedByAnyLayer()
-        .whereLayer("Domain").mayOnlyBeAccessedByLayers("Web", "Persistence", "Daemon");
+        .whereLayer("Fixture").mayNotBeAccessedByAnyLayer()
+        .whereLayer("Domain").mayOnlyBeAccessedByLayers("Fixture", "Web", "Persistence", "Daemon");
 
     arch.check(jc);
   }

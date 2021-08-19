@@ -20,7 +20,7 @@ public class JpaTaskRepository implements TaskRepository {
 
   private static final String FIND_ALL_BY_ROADMAP_QUERY = """
         SELECT new com.mathieuaime.roadmap.repository.projection.TaskProjection(
-        item.roadmap.id, item.roadmap.name, item.roadmap.description,
+        item.roadmap.id, item.roadmap.name, item.roadmap.description, item.roadmap.color,
         item.skill.id, item.skill.name, item.skill.icon,
         item.task.id, item.task.name, item.task.description,
         item.category, false, item.required)
@@ -30,7 +30,7 @@ public class JpaTaskRepository implements TaskRepository {
 
   private static final String FIND_ALL_BY_USER_AND_ROADMAP_QUERY = """
         SELECT new com.mathieuaime.roadmap.repository.projection.TaskProjection(
-        item.roadmap.id, item.roadmap.name, item.roadmap.description,
+        item.roadmap.id, item.roadmap.name, item.roadmap.description, item.roadmap.color,
         item.skill.id, item.skill.name, item.skill.icon,
         item.task.id, item.task.name, item.task.description,
         item.category, c.done, item.required)
@@ -49,6 +49,11 @@ public class JpaTaskRepository implements TaskRepository {
         .getResultStream()
         .map(TaskMapper::toModel)
         .collect(toList());
+  }
+
+  @Override
+  public Optional<Task> findByName(String name) {
+    return findEntityByName(name).map(TaskMapper::toModel);
   }
 
   @Override
@@ -73,9 +78,9 @@ public class JpaTaskRepository implements TaskRepository {
     TaskEntity entity = TaskMapper.toEntity(task);
 
     if (entity.getId() == null) {
-      Optional<TaskEntity> optEntity = findByName(task.getName());
-      if (optEntity.isPresent()) {
-        return TaskMapper.toModel(optEntity.get());
+      Optional<Task> optTask = findByName(task.getName());
+      if (optTask.isPresent()) {
+        return optTask.get();
       } else {
         em.persist(entity);
       }
@@ -83,11 +88,10 @@ public class JpaTaskRepository implements TaskRepository {
       entity = em.merge(entity);
     }
 
-    return new Task(entity.getId(), task.getName(), task.getDescription(), task.isDone(),
-        task.isRequired(), task.getCategory());
+    return task.withId(entity.getId());
   }
 
-  private Optional<TaskEntity> findByName(String name) {
+  private Optional<TaskEntity> findEntityByName(String name) {
     return em.createQuery("from Task where name = ?1", TaskEntity.class)
         .setParameter(1, name)
         .getResultStream()

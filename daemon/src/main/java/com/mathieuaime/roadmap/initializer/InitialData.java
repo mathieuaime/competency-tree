@@ -12,19 +12,19 @@ public record InitialData(
 
 }
 
-record RoadmapData(long id, String name, String description) {
+record RoadmapData(String name, String description, String color) {
 
 }
 
-record SkillData(long id, String name, String icon) {
+record SkillData(String name, String icon) {
 
 }
 
-record TaskData(long roadmapId, long skillId, long id, String name, String description,
+record TaskData(String roadmap, String skill, String name, String description,
                 boolean required, Category category) {
 
 }
 
-record UserCheckData(long userId, long roadmapItemId, boolean done) {
+record UserCheckData(long userId, String task) {
 
 }

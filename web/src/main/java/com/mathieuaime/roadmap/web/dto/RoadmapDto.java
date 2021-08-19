@@ -9,15 +9,17 @@ public class RoadmapDto {
   private Long id;
   private String name;
   private String description;
+  private String color;
   private List<SkillDto> skills = Collections.emptyList();
 
   public RoadmapDto() {
   }
 
-  public RoadmapDto(Long id, String name, String description, List<SkillDto> skills) {
+  public RoadmapDto(Long id, String name, String description, String color, List<SkillDto> skills) {
     this.id = id;
     this.name = name;
     this.description = description;
+    this.color = color;
     this.skills = skills;
   }
 
@@ -45,6 +47,14 @@ public class RoadmapDto {
     this.description = description;
   }
 
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
   public List<SkillDto> getSkills() {
     return skills;
   }
@@ -65,12 +75,13 @@ public class RoadmapDto {
     return Objects.equals(id, that.id)
         && Objects.equals(name, that.name)
         && Objects.equals(description, that.description)
+        && Objects.equals(color, that.color)
         && Objects.equals(skills, that.skills);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, skills);
+    return Objects.hash(id, name, description, color, skills);
   }
 
   @Override
@@ -79,6 +90,7 @@ public class RoadmapDto {
         "id=" + id +
         ", name='" + name + '\'' +
         ", description='" + description + '\'' +
+        ", color='" + color + '\'' +
         ", skills='" + skills + '\'' +
         '}';
   }

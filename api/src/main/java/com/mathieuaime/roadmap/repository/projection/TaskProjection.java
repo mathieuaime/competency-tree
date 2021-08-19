@@ -19,6 +19,7 @@ public class TaskProjection {
       long roadmapId,
       String roadmapName,
       String roadmapDescription,
+      String roadmapColor,
       long skillId,
       String skillName,
       String skillIcon,
@@ -31,7 +32,7 @@ public class TaskProjection {
   ) {
     this.task = new Task(taskId, taskName, taskDescription, done, required, category);
     this.skill = new Skill(skillId, skillName, skillIcon, category);
-    this.roadmap = new Roadmap(roadmapId, roadmapName, roadmapDescription);
+    this.roadmap = new Roadmap(roadmapId, roadmapName, roadmapDescription, roadmapColor);
     this.done = Boolean.TRUE.equals(done);
     this.required = Boolean.TRUE.equals(required);
     this.category = category;

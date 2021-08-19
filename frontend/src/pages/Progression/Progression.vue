@@ -15,12 +15,12 @@ export default {
   data () {
     return {
       myImg: [
-        require('@/assets/rank-basic.png'),
-        require('@/assets/rank-beginner.png'),
-        require('@/assets/rank-confirmed.png'),
-        require('@/assets/rank-expert.png'),
-        require('@/assets/rank-master.png'),
-        require('@/assets/rank-admin.png')
+        require('@/assets/rank-BASIC.png'),
+        require('@/assets/rank-BEGINNER.png'),
+        require('@/assets/rank-CONFIRMED.png'),
+        require('@/assets/rank-EXPERT.png'),
+        require('@/assets/rank-MASTER.png'),
+        require('@/assets/rank-ADMIN.png')
       ]
     }
   },

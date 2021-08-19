@@ -5,6 +5,7 @@ import com.mathieuaime.roadmap.repository.CheckRepository;
 import com.mathieuaime.roadmap.repository.RoadmapItemRepository;
 import com.mathieuaime.roadmap.repository.TaskRepository;
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 
 @Transactional
@@ -27,6 +28,11 @@ public class TaskServiceImpl implements TaskService {
   @Override
   public List<Task> findAll() {
     return taskRepository.findAll();
+  }
+
+  @Override
+  public Optional<Task> findByName(String name) {
+    return taskRepository.findByName(name);
   }
 
   @Override
