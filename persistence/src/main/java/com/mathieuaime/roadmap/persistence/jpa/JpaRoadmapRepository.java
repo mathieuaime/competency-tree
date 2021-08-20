@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -27,11 +28,11 @@ public class JpaRoadmapRepository implements RoadmapRepository {
 
   @Override
   public Optional<Roadmap> findByName(String name) {
-    return em.createQuery("from Roadmap where name = ?1", RoadmapEntity.class)
-        .setParameter(1, name)
-        .getResultStream()
-        .map(RoadmapMapper::toModel)
-        .findFirst();
+    return em.unwrap(Session.class)
+        .byNaturalId(RoadmapEntity.class)
+        .using("name", name)
+        .loadOptional()
+        .map(RoadmapMapper::toModel);
   }
 
   @Override

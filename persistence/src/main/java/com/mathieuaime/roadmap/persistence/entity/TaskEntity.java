@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.annotations.NaturalId;
 
 @Entity(name = "Task")
 @Table(name = "task")
@@ -15,6 +16,7 @@ public class TaskEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  @NaturalId
   @Column(unique = true, nullable = false)
   private String name;
   @Column(columnDefinition = "TEXT")

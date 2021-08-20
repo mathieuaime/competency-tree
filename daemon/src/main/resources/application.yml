@@ -1,2 +1,4 @@
 server:
   port: ${PORT:8080}
+
+spring.jpa.properties.hibernate.session.events.log.LOG_QUERIES_SLOWER_THAN_MS: 10

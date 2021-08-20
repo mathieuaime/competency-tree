@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -92,9 +93,9 @@ public class JpaTaskRepository implements TaskRepository {
   }
 
   private Optional<TaskEntity> findEntityByName(String name) {
-    return em.createQuery("from Task where name = ?1", TaskEntity.class)
-        .setParameter(1, name)
-        .getResultStream()
-        .findFirst();
+    return em.unwrap(Session.class)
+        .byNaturalId(TaskEntity.class)
+        .using("name", name)
+        .loadOptional();
   }
 }

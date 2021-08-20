@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -28,11 +29,11 @@ public class JpaSkillRepository implements SkillRepository {
 
   @Override
   public Optional<Skill> findByName(String name) {
-    return em.createQuery("from Skill where name = ?1", SkillEntity.class)
-        .setParameter(1, name)
-        .getResultStream()
-        .map(SkillMapper::toModel)
-        .findFirst();
+    return em.unwrap(Session.class)
+        .byNaturalId(SkillEntity.class)
+        .using("name", name)
+        .loadOptional()
+        .map(SkillMapper::toModel);
   }
 
   @Override
