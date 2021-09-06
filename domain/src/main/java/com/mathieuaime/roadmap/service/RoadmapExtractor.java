@@ -18,28 +18,6 @@ class RoadmapExtractor {
     this.projections = projections;
   }
 
-  private static TreeSet<Skill> accumulate(TreeSet<Skill> skills, TaskProjection projection) {
-    skills.stream()
-        .filter(s -> Objects.equals(projection.getSkill(), s))
-        .findFirst()
-        .ifPresentOrElse(
-            s -> merge(s, projection.getTask()),
-            () -> skills.add(merge(projection.getSkill(), projection.getTask()))
-        );
-
-    return skills;
-  }
-
-  private static Skill merge(Skill skill, Task task) {
-    skill.addTask(task);
-    return skill;
-  }
-
-  private static TreeSet<Skill> combine(TreeSet<Skill> skills1, TreeSet<Skill> skills2) {
-    skills1.addAll(skills2);
-    return skills1;
-  }
-
   public Optional<Roadmap> getRoadmap() {
     return projections.stream()
         .findFirst()
@@ -49,10 +27,25 @@ class RoadmapExtractor {
   }
 
   private Set<Skill> getSkills() {
-    return projections.stream().reduce(
-        new TreeSet<>(Skill.categoryAndIdComparator()),
+    return projections.stream().collect(
+        () -> new TreeSet<>(Skill.categoryAndIdComparator()),
         RoadmapExtractor::accumulate,
-        RoadmapExtractor::combine
+        TreeSet::addAll
     );
+  }
+
+  private static void accumulate(TreeSet<Skill> skills, TaskProjection projection) {
+    skills.stream()
+        .filter(s -> Objects.equals(projection.getSkill(), s))
+        .findFirst()
+        .ifPresentOrElse(
+            s -> merge(s, projection.getTask()),
+            () -> skills.add(merge(projection.getSkill(), projection.getTask()))
+        );
+  }
+
+  private static Skill merge(Skill skill, Task task) {
+    skill.addTask(task);
+    return skill;
   }
 }
