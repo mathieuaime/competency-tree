@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-java@v2.3.0
       with:
         distribution: 'zulu'
-        java-version: 16
+        java-version: 17
 
     - name: Test with maven
       run: mvn -B verify --file pom.xml
