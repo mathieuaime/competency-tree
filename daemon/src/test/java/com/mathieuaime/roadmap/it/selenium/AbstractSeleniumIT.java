@@ -64,7 +64,7 @@ public abstract class AbstractSeleniumIT {
   }
 
   WebElement findElementById(String id) {
-    return webDriver.findElementById(id);
+    return findElementBy(By.id(id));
   }
 
   WebElement findElementById(WebElement root, String id) {
@@ -72,7 +72,11 @@ public abstract class AbstractSeleniumIT {
   }
 
   WebElement findElementByClassName(String className) {
-    return webDriver.findElementByClassName(className);
+    return findElementBy(By.className(className));
+  }
+
+  WebElement findElementBy(By by) {
+    return webDriver.findElement(by);
   }
 
   WebElement findElementByClassName(WebElement root, String className) {
