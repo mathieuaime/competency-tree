@@ -21,8 +21,7 @@ public class ScreenshotOnFailureExtension implements AfterEachCallback {
   @Override
   public void afterEach(ExtensionContext extensionContext) {
     if (extensionContext.getExecutionException().isPresent()) {
-      AbstractSeleniumIT testInstance = (AbstractSeleniumIT) extensionContext.getRequiredTestInstance();
-      BrowserWebDriverContainer<?> browserContainer = testInstance.webDriverContainer;
+      BrowserWebDriverContainer<?> browserContainer = AbstractSeleniumIT.webDriverContainer;
       byte[] screenshot = browserContainer.getWebDriver().getScreenshotAs(OutputType.BYTES);
 
       try {
