@@ -31,7 +31,7 @@
     <archunit-junit5.version>0.22.0</archunit-junit5.version>
     <testcontainers.version>1.16.2</testcontainers.version>
     <selenium.version>4.1.1</selenium.version>
-    <awaitility.version>4.1.1</awaitility.version>
+    <awaitility.version>4.2.0</awaitility.version>
     <jmh.version>1.34</jmh.version>
 
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
